@@ -5,6 +5,7 @@
 package com.DrunkPizza.Drunk.entity;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import javax.persistence.ManyToOne;
  *
  * @author Alonso
  */
+@Entity
 public class clientes implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
