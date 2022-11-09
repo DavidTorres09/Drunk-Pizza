@@ -44,12 +44,14 @@ nav{
     justify-content: center;
     display: flex;
     align-items: center;
-    background-color: #0d1117;
+    background-color: #390505;
     grid-area: nav;
     padding-top: var(--main-padding);
     position: relative;
     left: 50%;
     transform: translatex(-50%);
+    height: 150px;
+    box-shadow: 0 5px 10px #971a1a;
 }
 
 main{

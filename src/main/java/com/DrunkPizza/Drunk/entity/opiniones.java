@@ -25,7 +25,7 @@ public class opiniones implements Serializable {
     private String opinion;
     
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="id_cliente")
     private clientes clientes;
 
     public long getId() {

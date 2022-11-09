@@ -30,7 +30,7 @@ public class ProductoController {
     @GetMapping("/producto")
     public String index(Model model) {
         List<Producto> listaProducto = productoService.getAllProducto();
-        model.addAttribute("titulo", "Tabla Persona");
+        model.addAttribute("titulo", "Productos");
         model.addAttribute("producto", listaProducto);
         return "producto";
     }

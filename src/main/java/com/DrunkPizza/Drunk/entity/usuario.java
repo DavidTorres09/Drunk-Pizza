@@ -24,7 +24,7 @@ public class usuario implements Serializable {
     private String password;
     
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="id_user")
     private clientes clientes;
 
     public long getId() {
