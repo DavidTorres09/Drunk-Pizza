@@ -13,7 +13,7 @@
 
     <div class="container">
         <header >
-                <nav>
+                <nav th:fragment="nav">
                     <img class="logo" src="Images/Logo Pizza.png" alt="Logo" />
                     <ul>
                         <li style="--w:#ff0000;--e:#000;">
@@ -43,6 +43,10 @@
                         
                         
                     </ul>
+                    <a th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                    th:href="${urlBuilder.replaceQueryParam('lang','es').toUriString()}">ES</a>
+                    <a th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                    th:href="${urlBuilder.replaceQueryParam('lang','en').toUriString()}">EN</a>
                 </nav>
         </header>
 
@@ -52,7 +56,7 @@
 
 
 
-        <footer class="footer">
+        <footer class="footer" th:fragment="footer">
             <section>
                 <a href="#titulo">Ir al titulo</a>
                 <br>
