@@ -17,12 +17,13 @@ public class pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_pedido;
-    private String precio_total;
-    private String orden_cliente;
+    private int orden_cliente;
+    private int precio_total;
+    
     @ManyToOne
     @JoinColumn(name="id_producto_pedido")
- 
     private productos_pedido productos_pedido;
+    
     @ManyToOne
     @JoinColumn(name="id_metodo_pago")
     private metodo_pago metodo_pago;
@@ -35,20 +36,20 @@ public class pedido implements Serializable {
         this.id_pedido = id_pedido;
     }
 
-    public String getPrecio_total() {
-        return precio_total;
-    }
-
-    public void setPrecio_total(String precio_total) {
-        this.precio_total = precio_total;
-    }
-
-    public String getOrden_cliente() {
+    public int getOrden_cliente() {
         return orden_cliente;
     }
 
-    public void setOrden_cliente(String orden_cliente) {
+    public void setOrden_cliente(int orden_cliente) {
         this.orden_cliente = orden_cliente;
+    }
+
+    public int getPrecio_total() {
+        return precio_total;
+    }
+
+    public void setPrecio_total(int precio_total) {
+        this.precio_total = precio_total;
     }
 
     public productos_pedido getProductos_pedido() {
@@ -66,5 +67,6 @@ public class pedido implements Serializable {
     public void setMetodo_pago(metodo_pago metodo_pago) {
         this.metodo_pago = metodo_pago;
     }
-    
+
+
 }

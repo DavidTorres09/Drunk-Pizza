@@ -15,16 +15,18 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "productos_pedido")
-public class productos_pedido implements Serializable {
+@Table(name="opiniones")
+public class opiniones implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+    private String opinion;
+    
     @ManyToOne
-    @JoinColumn(name="id_producto")
-    private Producto producto;
+    @JoinColumn(name="id")
+    private clientes clientes;
 
     public long getId() {
         return id;
@@ -34,13 +36,23 @@ public class productos_pedido implements Serializable {
         this.id = id;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public String getOpinion() {
+        return opinion;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
     }
+
+    public clientes getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(clientes clientes) {
+        this.clientes = clientes;
+    }
+    
+    
     
     
     

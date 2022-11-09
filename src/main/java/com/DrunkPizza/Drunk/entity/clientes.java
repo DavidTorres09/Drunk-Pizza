@@ -4,22 +4,26 @@
  */
 package com.DrunkPizza.Drunk.entity;
 
+import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Alonso
  */
-public class clientes implements Serialzable{
+public class clientes implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
     private String nombre;
     private String direccion;
     private String telefono;
+    
     @ManyToOne
     @JoinColumn(name="id_pedido")
     private pedido pedido;
