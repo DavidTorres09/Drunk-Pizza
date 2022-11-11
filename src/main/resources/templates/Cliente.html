@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Clientes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="images\Logo Pizza.ico">
@@ -13,25 +13,25 @@
             <nav th:replace="plantilla/template::nav"></nav>
         </header>
 
-        <h1 th:text="${titulo}"></h1>
+        <h1 th:text="#{cliente.titulo}"></h1>
 
     <section:block th:each="user : ${cliente}" class="contenedor_cliente">
 
         <div class="cliente">
             <div class="Nombre">
+                <h2 th:text="#{cliente.nombre}"></h2>
                 <p th:text="${user.getNombre}"></p>
             </div>
+            
             <div class="Dirección">
+                <h2>Direccion</h2>
                 <p th:text="${user.getDireccion}"></p>
             </div>
             <div class="Telefono">
-
+                <h2 th:text="#{cliente.telefono}"></h2>
                 <p th:text="${user.getTelefono}"></p>
             </div>
             <div class="boton">
-                <a  href="#" >
-                    AGREGAR
-                </a>
 
             </div>
 

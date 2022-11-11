@@ -34,10 +34,10 @@ public class ClientesController {
     }
     
     
-    @PostMapping("/save")
+    @PostMapping("/savePersona")
     public String guardarPersona(@ModelAttribute clientes cliente){
         clientesService.saveCliente(cliente);
-        return "redirect:/producto";
+        return "redirect:/cliente";
     }
     
     @GetMapping("/editClientes/{id}")

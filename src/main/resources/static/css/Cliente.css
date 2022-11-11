@@ -31,14 +31,14 @@ h1{
 /*CONTENEDOR*/
 
 
-.contenedor_producto{
+.contenedor_cliente{
     display: inline-block;
     width: auto;
     margin: 50px 20px;
     text-align: center;
     background-color: #910000;
-    width: 700px;
-    height: 400px;
+    width: 500px;
+    height: 300px;
     border: 1px solid #700000;
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
@@ -46,7 +46,7 @@ h1{
 }
 
 
-.contenedor_producto:hover{
+.contenedor_cliente:hover{
     box-shadow: 0 0.1rem 0.4rem ;
     cursor: pointer;
     box-shadow: 5px 5px 5px #990000;
@@ -55,60 +55,22 @@ h1{
 
 
 /*ETIQUETAS*/
-.nombre{
-    margin-top: 40px;
-    margin-bottom: 10px;
+
+.contenedor_cliente h2{
     font-size: 24px;
-    color: white;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    
-}
-
-.descripcion{
     margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: white;
-    
+    color: #FFAD00;
+    font-weight: 800;
+     
 }
-
-.precio{
-    display: flex;
-    justify-content: center;  
+.cliente p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
     color: white;
     font-weight: 800;
-    margin-top: 75px;
-}
-
-.boton{
-    margin-top: 110px;
-    
-}
-
-.boton a{
-    padding: 15px 25px;
-    color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
     text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
     letter-spacing: 4px;
-    background-color: #ffcc33;
-    border-radius: 10px;
-
-}
-  
-.boton a:hover {
-    background: #ffcc33;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0 0 5px #ffff00,
-                0 0 25px #ffff00,
-                0 0 50px #ffff00,
-                0 0 100px #ffff00;
+    
 }
 
