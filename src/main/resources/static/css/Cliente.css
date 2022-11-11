@@ -1,0 +1,114 @@
+/* 
+    Created on : Nov 4, 2022, 11:41:29 PM
+    Author     : Alonso
+*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: black;
+    padding-left: 2%;
+    padding-right: 2%;
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+    background-color: #0d1117;
+}
+h1{
+    font-size: 30px;
+    color: #00ff59;
+    margin-top: 40px;
+    letter-spacing: 4px;
+     text-transform: uppercase;
+
+}
+
+
+/*CONTENEDOR*/
+
+
+.contenedor_producto{
+    display: inline-block;
+    width: auto;
+    margin: 50px 20px;
+    text-align: center;
+    background-color: #910000;
+    width: 700px;
+    height: 400px;
+    border: 1px solid #700000;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+
+}
+
+
+.contenedor_producto:hover{
+    box-shadow: 0 0.1rem 0.4rem ;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #990000;
+}
+
+
+
+/*ETIQUETAS*/
+.nombre{
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    
+}
+
+.descripcion{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+    
+}
+
+.precio{
+    display: flex;
+    justify-content: center;  
+    color: white;
+    font-weight: 800;
+    margin-top: 75px;
+}
+
+.boton{
+    margin-top: 110px;
+    
+}
+
+.boton a{
+    padding: 15px 25px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    background-color: #ffcc33;
+    border-radius: 10px;
+
+}
+  
+.boton a:hover {
+    background: #ffcc33;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ffff00,
+                0 0 25px #ffff00,
+                0 0 50px #ffff00,
+                0 0 100px #ffff00;
+}
+
