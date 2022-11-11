@@ -9,17 +9,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.DrunkPizza.Drunk.entity.clientes;
+import com.DrunkPizza.Drunk.service.IClientesService;
+
 @Controller
 public class ClientesController {
     
     @Autowired
-    private IClienteService clienteService;
-
+    private IClientesService clientesService;
 
 
     @GetMapping("/cliente")
     public String index(Model model) {
-        List<Clientes> listaClientes = clienteService.getAllClientes();
+        List<clientes> listaClientes = clientesService.getAllClientes();
         model.addAttribute("titulo", "Cliente");
         model.addAttribute("cliente", listaClientes);
         return "cliente";
@@ -27,27 +29,27 @@ public class ClientesController {
 
     @GetMapping("clienteNuevo")
     public String crearCliente(Model model) {
-        model.addAttribute("cliente", new Cliente());
+        model.addAttribute("cliente", new clientes());
         return "crear";
     }
     
     
     @PostMapping("/save")
-    public String guardarPersona(@ModelAttribute Cliente cliente){
-        productoService.saveCliente(cliente);
+    public String guardarPersona(@ModelAttribute clientes cliente){
+        clientesService.saveCliente(cliente);
         return "redirect:/producto";
     }
     
-    @GetMapping("/editPersona/{id}")
+    @GetMapping("/editClientes/{id}")
     public String editarPersona(@PathVariable("id")Long idCliente, Model model){
-        Cliente cliente = clienteService.getClienteById(idCliente);
+        clientes cliente = clientesService.getClienteById(idCliente);
         model.addAttribute("cliente", cliente);
         return "crear";
     }
     
     @GetMapping("/deleteCliente/{id}")
     public String eliminarPersona(@PathVariable("id") Long idCliente){
-        clienteService.delete(idCliente);
+        clientesService.delete(idCliente);
         return "redirect:/cliente";
     }
     
