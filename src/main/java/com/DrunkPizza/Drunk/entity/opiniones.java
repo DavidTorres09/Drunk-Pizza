@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.DrunkPizza.Drunk.entity;
 
 import java.io.Serializable;
@@ -13,7 +9,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ *
+ * @author Alonso
+ */
 @Entity
 @Table(name="opiniones")
 public class opiniones implements Serializable {
