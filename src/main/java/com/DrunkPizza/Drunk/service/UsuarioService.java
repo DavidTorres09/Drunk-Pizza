@@ -22,7 +22,7 @@ public class UsuarioService implements IUsuarioService{
     }
 
     @Override
-    public usuario getProductosUsuarioById(long id) {
+    public usuario getUsuarioById(long id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 

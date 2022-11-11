@@ -23,8 +23,6 @@ h1{
     color: #00ff59;
     margin-top: 40px;
     letter-spacing: 4px;
-     text-transform: uppercase;
-
 }
 
 
@@ -61,6 +59,8 @@ h1{
     margin-top: 20px;
     color: #FFAD00;
     font-weight: 800;
+    text-transform: uppercase;
+
      
 }
 .cliente p{
@@ -69,7 +69,7 @@ h1{
     font-size: 20px;
     color: white;
     font-weight: 800;
-    text-transform: uppercase;
+
     letter-spacing: 4px;
     
 }

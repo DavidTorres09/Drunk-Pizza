@@ -10,7 +10,7 @@ import java.util.List;
 public interface IUsuarioService {
     
     public List<usuario> getAllUsuarios();
-    public usuario getProductosUsuarioById (long id);
+    public usuario getUsuarioById (long id);
     public void saveUsuario (usuario usuario);
     public void delete (long id);
 }
