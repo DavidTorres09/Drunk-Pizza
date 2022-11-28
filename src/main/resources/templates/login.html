@@ -3,40 +3,65 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
+
+
 <html>
     <head>
-        <title>Clientes</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="images\Logo Pizza.ico">
-         <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+        <meta charset='utf-8'>
+        <title>Login</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/Login.css" th:href="@{/css/Login.css}" />
     </head>
+
     <body>
-        <header>
-            <nav th:replace="plantilla/template::nav"></nav>
-        </header>
-            <h1 th:text="#{producto}"></h1>
-            <form>
+        
+        
+        <form name="f" th:action="@{/login}" method="post"  class="login-box">
+            <h2>Login</h2>
+
+            <fieldset>
+                
+                <!--Thymeleaf + Spring security error display -->
+                <div th:if="${param.error}" class="aler alert-danger">
+                    invalid username and password
+                </div>
+
+                <div th:if="${param.logout}" class="aler alert-success">
+                    You have been logged out.
+                </div>
+
+                <!--Login Controls -->
                 <div class="user-box">
                     <input type="text" name="" required="">
                     <label>Username</label>
                 </div>
+
                 <div class="user-box">
                     <input type="password" name="" required="">
                     <label>Password</label>
                 </div>
-                    <a  href="/menu.html" th:href="@{/menu.html}">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Submit
-                </a>
-            </form>
-            
 
-        
-        
-        <footer th:replace="plantilla/template::footer"></footer>
+                <div class="form-check">
+                    <input type="checkbox"  id="checkRememberMe" name="checkRememberMe">      
+                    <label class="form-check-label" for="checkRememberMe">Remember Me?</label>
+                </div>
+
+                <!--Login Button -->
+                <div class="form-check">
+                    <button type="submit" class="btn btn-success">Log in</button>
+                </div>
+
+            </fieldset>
+
+            <!--  <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+                </a>-->
+        </form>
+
     </body>
+
 </html>
