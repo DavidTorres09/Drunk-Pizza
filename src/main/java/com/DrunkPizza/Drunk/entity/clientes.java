@@ -29,7 +29,7 @@ public class clientes implements Serializable{
     
     /*PERMISOS Y CONTRASENA*/
     private String password;    
-    private int active;
+    private int active = 0;
     private String roles = "";
     private String permissions = "";
     

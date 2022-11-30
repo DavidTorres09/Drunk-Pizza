@@ -14,38 +14,36 @@
 
     <div class="container">
         <header >
-                <nav th:fragment="nav">
-                    <img th:src="@{/images/Logo.png'}" alt="Logo" />
+            <nav th:fragment="nav">
                     <ul>
                         <li style="--w:#ff0000;--e:#000;">
                             <span class="material-symbols-outlined" >home</span>
-                            <span class="txt">HOME</span>
+                            <a class="txt" href="#" th:href="@{/}">HOME</a>
                         </li>
                         <li style="--w:#00ff59;--e:#000;">
-                            <span class="material-symbols-outlined" >call</span>
-                            <span class="txt">CONTACTENOS</span>
-                        </li>
-                        <li style="--w:#FFAD00;--e:#000;">
-                            <span class="material-symbols-outlined">local_pizza</span>
-                            <span class="txt">ORDENAR</span>
+                            <span class="material-symbols-outlined" >shopping_cart_checkout</span>
+                            <a class="txt" href="#" th:href="@{/carrito}">CARRITO</a>
                         </li>
                         <li style="--w:#ff0000;--e:#000;">
-                            <span class="material-symbols-outlined">favorite</span>
-                            <span class="txt">OPINIONES</span>
+                            <span class="material-symbols-outlined" >call</span>
+                            <a class="txt" href="#" th:href="@{/contactenos}">CONTACTENOS</a>
                         </li>
-                        <li style="--w:#00fff7;--e:#000;">
-                            <span class="material-symbols-outlined" >shopping_cart_checkout</span>
-                            <span class="txt">Carrito</span>
+                         <li style="--w:#00ff59;--e:#000;">
+                            <span class="material-symbols-outlined" >favorite</span>
+                            <a class="txt" href="#" th:href="@{/opinion}">Opiniones</a>
                         </li>
-                        <li style="--w:#4D4DFF;--e:#000;">
+                        <li style="--w:#ff0000;--e:#000;">
+                            <span class="material-symbols-outlined" >person</span>
+                            <a class="txt" href="#" th:href="@{/cliente}">CLIENTES</a>
+                        </li>
+                        <li style="--w:#00ff59;--e:#000;">
                             <span class="material-symbols-outlined" >logout</span>
-                            <span class="txt">SALIR</span>
+                            <a class="txt" href="#" th:href="@{/login}">SALIR</a>
                         </li>
                         
                         
                     </ul>
-                    
-                </nav>
+                </nav>  
         </header>
 
         <main>Main</main>

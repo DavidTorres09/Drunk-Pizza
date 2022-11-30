@@ -48,7 +48,8 @@ public class ProductoController {
     public String editarProducto(@PathVariable("id")Long idProducto, Model model){
         Producto producto = productoService.getProductoById(idProducto);
         model.addAttribute("producto", producto);
-        return "redirect:/";
+        
+        return "productoNuevo";
     }
     
     @GetMapping("/deleteProducto/{id}")

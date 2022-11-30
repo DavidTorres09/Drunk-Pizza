@@ -30,25 +30,25 @@ public class ClientesController {
     @GetMapping("clienteNuevo")
     public String crearCliente(Model model) {
         model.addAttribute("cliente", new clientes());
-        return "crear";
+        return "clienteNuevo";
     }
     
     
-    @PostMapping("/savePersona")
-    public String guardarPersona(@ModelAttribute clientes cliente){
+    @PostMapping("/saveCliente")
+    public String guardarCliente(@ModelAttribute clientes cliente){
         clientesService.saveCliente(cliente);
         return "redirect:/cliente";
     }
     
     @GetMapping("/editClientes/{id}")
-    public String editarPersona(@PathVariable("id")Long idCliente, Model model){
+    public String editarCliente(@PathVariable("id")Long idCliente, Model model){
         clientes cliente = clientesService.getClienteById(idCliente);
         model.addAttribute("cliente", cliente);
-        return "crear";
+        return "clienteNuevo";
     }
     
     @GetMapping("/deleteCliente/{id}")
-    public String eliminarPersona(@PathVariable("id") Long idCliente){
+    public String eliminarCliente(@PathVariable("id") Long idCliente){
         clientesService.delete(idCliente);
         return "redirect:/cliente";
     }
