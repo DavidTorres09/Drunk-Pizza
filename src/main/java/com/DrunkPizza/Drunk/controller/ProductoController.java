@@ -23,38 +23,38 @@ public class ProductoController {
 
 
 
-    @GetMapping("/producto")
+    @GetMapping("/")
     public String index(Model model) {
         List<Producto> listaProducto = productoService.getAllProducto();
         model.addAttribute("titulo", "Productos");
         model.addAttribute("producto", listaProducto);
-        return "producto";
+        return "index";
     }
 
-    @GetMapping("productoNuevo")
-    public String crearPersona(Model model) {
+    @GetMapping("productoN")
+    public String crearProducto(Model model) {
         model.addAttribute("producto", new Producto());
-        return "crear";
+        return "productoNuevo";
     }
     
     
-    @PostMapping("/save")
-    public String guardarPersona(@ModelAttribute Producto producto){
+    @PostMapping("/saveProducto")
+    public String guardarProducto(@ModelAttribute Producto producto){
         productoService.saveProducto(producto);
-        return "redirect:/producto";
+        return "redirect:/";
     }
     
-    @GetMapping("/editPersona/{id}")
-    public String editarPersona(@PathVariable("id")Long idProducto, Model model){
+    @GetMapping("/editProducto/{id}")
+    public String editarProducto(@PathVariable("id")Long idProducto, Model model){
         Producto producto = productoService.getProductoById(idProducto);
         model.addAttribute("producto", producto);
-        return "crear";
+        return "redirect:/";
     }
     
     @GetMapping("/deleteProducto/{id}")
-    public String eliminarPersona(@PathVariable("id") Long idProducto){
+    public String eliminarProducto(@PathVariable("id") Long idProducto){
         productoService.delete(idProducto);
-        return "redirect:/producto";
+        return "redirect:/";
     }
     
 }

@@ -4,17 +4,14 @@
  */
 package com.DrunkPizza.Drunk;
 
-import com.DrunkPizza.Drunk.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 
 /**
  *
@@ -23,7 +20,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+/*
     @Autowired
     private UserService userDetailsService;
 
@@ -73,5 +70,51 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login").permitAll().defaultSuccessUrl("/cliente", true);
     }
+*/
+    
+  //El siguiente método funciona para hacer la auttenticación del usuario
+   @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth.inMemoryAuthentication()
+                .withUser("juan")
+                    .password("{noop}123")
+                    .roles("ADMIN","VENDEDOR","USER")
+                .and()
+                .withUser("rebeca")
+                    .password("{noop}123")
+                    .roles("VENDEDOR","USER")
+                .and()
+                .withUser("pedro")
+                    .password("{noop}123")
+                    .roles("USER");
+    }
+    
+     @Override
+    protected void configure(HttpSecurity http) throws Exception{
+        http.authorizeRequests()
+                .antMatchers("/articulo/nuevo",        "/articulo/guardar", 
+                             "/articulo/modificar/**", "/articulo/eliminar/**",
+                             "/categoria/nuevo",       "/categoria/guardar",
+                             "/categoria/modificar/**","/categoria/eliminar/**",
+                             "/cliente/nuevo",         "/cliente/guardar",  
+                             "/cliente/modificar/**",  "/cliente/eliminar/**",
+                             "/usuario/listado",  
+                             "/usuario/nuevo",         "/usuario/guardar",  
+                             "/usuario/modificar/**",  "/usuario/eliminar/**",
+                             "/cliente**",  "/producto**")
+                    .hasRole("ADMIN")
+                .antMatchers("/articulo/listado", "/categoria/listado",
+                             "/cliente/listado")
+                    .hasAnyRole("ADMIN","VENDEDOR")
+                .antMatchers("/")
+                    .hasAnyRole("USER","VENDEDOR","ADMIN")
+                /*SI NO SE ENCUENTRA AUTENTICADO*/
+                .and()
+                    .formLogin()
+                    .loginPage("/login")
+                .and()
+                /*PROBLEMA DE ROLES*/
+                    .exceptionHandling().accessDeniedPage("/errores/403");
+    } 
+}  
 
-}
