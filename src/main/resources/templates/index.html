@@ -1,7 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Producto</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
+        <link rel="icon" href="images\Logo Pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="images\Logo Pizza.ico">
         <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
@@ -13,8 +14,8 @@
             <nav th:replace="plantilla/template::nav"></nav>
         </header>
 
+        <h1 th:text="${titulo}"></h1>
         <h1 th:text="#{articulo.titulo}"></h1>
-
 
     <section:block th:each="user : ${producto}" class="contenedor_producto">
 
@@ -30,12 +31,11 @@
                 <p th:text="${user.getPrecio}"></p>
             </div>
             <div class="boton">
-                <a th:href="@{/editProducto/{id}(id=${user.getId_producto})}">Edit</a>
-            </div>
-            <div class="boton">
-                <a th:href="@{/deleteProducto/{id}(id=${user.getId_producto})}">Delete</a>
-            </div>
+                <a  href="#" >
+                    COMPRAR
+                </a>
 
+            </div>
 
 
         </div>
@@ -44,18 +44,8 @@
     </section:block >
 
 
-
-    <!-- Si la lista esta vacia 
-    <div th:if ="${producto == nulll or producto.empty}">
-        No tenemos lista de productos que mostrar...
-    </div>-->
-
-    <div class="crear">
-        <a th:href="@{productoN}">Crear</a>
-    </div>
-
-
     <footer th:replace="plantilla/template::footer"></footer>
 </body>
+
 </html>
 

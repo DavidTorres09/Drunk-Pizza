@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+
+<!-- agregar lo referente para ver solo la informacion del perfil que inicia sesion en ese momento -->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <nav th:replace="plantilla/template::nav"></nav>
+        </header>
+
+    <section:block th:each="user : ${cliente}" class="contenedor_cliente">
+
+        <div class="cliente">
+            <div class="Nombre">
+                <h2 th:text="#{cliente.nombre}"></h2>
+                <p th:text="${user.getNombre}"></p>
+            </div>
+
+            <div class="Apellido1">
+                <h2 th:text="#{cliente.apellido}"></h2>
+                <p th:text="${user.getApellido1}"></p>
+            </div>
+
+            <div class="Apellido2">
+                <h2 th:text="#{cliente.apellido}"></h2>
+                <p th:text="${user.getApellido2}"></p>
+            </div>
+
+            <div class="Dirección">
+                <h2>Direccion</h2>
+                <p th:text="${user.getDireccion}"></p>
+            </div>
+
+            <div class="Email">
+                <h2>Email</h2>
+                <p th:text="${user.getEmail}"></p>
+            </div>
+
+
+            <div class="Telefono">
+                <h2 th:text="#{cliente.telefono}"></h2>
+                <p th:text="${user.getTelefono}"></p>
+            </div>
+
+            <div class="boton">
+                <a th:href="@{/editClientes/{id}(id=${user.getId})}">Edit</a>
+            </div>
+            <div class="boton">
+                <a th:href="@{/deleteCliente/{id}(id=${user.getId})}">Delete</a>
+            </div>
+
+
+
+        </div>
+
+
+    </section:block >
+
+
+
+
+    <footer th:replace="plantilla/template::footer"></footer>
+</body>
+</html>

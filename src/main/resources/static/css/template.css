@@ -10,13 +10,13 @@
     --main-radius:5px;
     --main-padding:5px;
 }
-    
+
 .container{
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr ;
     grid-template-rows: 0.8fr 1.5fr 1.5fr 0.1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "nav "
         "main"
         "content1 "
@@ -28,7 +28,7 @@
     font-size: 12px;
     color: #ffffff;
     text-align: center;
-    
+
 }
 
 
@@ -87,7 +87,8 @@ li{
     height: 80px;
     width: 80px;
     list-style:none;
-    background:#fff ;
+    background:#BA1616;
+    border-color: #fff;
     border-radius: 60px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     cursor: pointer;
@@ -141,7 +142,7 @@ ion-icon{
     transition-delay: 0.25s;
 }
 
-li:hover ion-icon{
+li:hover span.material-symbols-outlined{
     transform: scale(0);
     color: #fff;
     transition-delay: 0s;
@@ -171,17 +172,20 @@ li:hover .txt{
 /* ICONOS*/
 span.material-symbols-outlined{
     font-variation-settings:
-    'FILL' 0,
-    'wght' 800,
-    'GRAD' 0,
-    'opsz' 60
+        'FILL' 0,
+        'wght' 800,
+        'GRAD' 0,
+        'opsz' 60
 }
-    
+
 span.material-symbols-outlined{
-    color: rgb(0, 0, 0);
+    color: FFFFFF;
     font-size: 25px;
-    
+
 }
+
+
+
 
 /*LOGO */
 .logo{
@@ -200,7 +204,7 @@ footer {
     margin: 0;
     border: none;
     background-color: #333333;
-    
+
 }
 
 footer section{
@@ -225,10 +229,15 @@ footer a:hover{
 }
 
 footer span.material-symbols-outlined{
-margin-right: 50;
-color: #fff;
+    margin-right: 50;
+    color: #FFFFFF;
 
 }
-    
+
+a {
+    text-decoration: none;
+
+}
+
 
 

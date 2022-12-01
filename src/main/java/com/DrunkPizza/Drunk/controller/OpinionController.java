@@ -4,7 +4,12 @@
  */
 package com.DrunkPizza.Drunk.controller;
 
+import com.DrunkPizza.Drunk.entity.opiniones;
+import com.DrunkPizza.Drunk.service.IOpinionesService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -13,10 +18,16 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class OpinionController {
-    @GetMapping("/opinion")
-    public String index() {
-        return "/opinion";
-    }
     
+    @Autowired
+    private IOpinionesService opinionesService;
+    
+    @GetMapping("/opinion")
+    public String index(Model model) {
+        List<opiniones> listaOpinion = opinionesService.getAllOpiniones();
+        model.addAttribute("titulo", "Opiniones");
+        model.addAttribute("opinion", listaOpinion);
+        return "opinion";
+    }
     
 }

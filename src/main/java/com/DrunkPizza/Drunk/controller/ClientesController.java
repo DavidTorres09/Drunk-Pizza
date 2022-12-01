@@ -53,5 +53,12 @@ public class ClientesController {
         return "redirect:/cliente";
     }
     
+    @GetMapping("/perfil/{id}")
+    public String perfil(@PathVariable("id") Long idCliente, Model model) {
+        clientes cliente = clientesService.getClienteById(idCliente);
+        model.addAttribute("cliente", cliente);
+        return "/perfil";
+    }
+    
 }
 
