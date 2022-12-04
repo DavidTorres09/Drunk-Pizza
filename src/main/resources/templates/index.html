@@ -1,51 +1,54 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <link rel="icon" href="images\Logo Pizza.ico">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="images\Logo Pizza.ico">
-        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
-        <link rel="stylesheet" type="text/css" media="all" href="/css/producto.css" th:href="@{/css/producto.css}" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    </head>
-    <body>
-        <header>
-            <nav th:replace="plantilla/template::nav"></nav>
-        </header>
+            <link rel="icon" href="images\Logo Pizza.ico">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="icon" href="images\Logo Pizza.ico">
+                        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+                        <link rel="stylesheet" type="text/css" media="all" href="/css/producto.css" th:href="@{/css/producto.css}" />
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                        </head>
+                        <body>
+                            <header>
+                                <nav th:replace="plantilla/template::nav"></nav>
+                            </header>
 
-        <h1 th:text="${titulo}"></h1>
-        <h1 th:text="#{articulo.titulo}"></h1>
+                            <h1 th:text="${titulo}"></h1>
+                            <h1 th:text="#{articulo.titulo}"></h1>
 
-    <section:block th:each="user : ${producto}" class="contenedor_producto">
+                            <section:block th:each="user : ${producto}" class="contenedor_producto">
 
-        <div class="producto">
-            <div class="Nombre">
-                <p th:text="${user.getNombre}"></p>
-            </div>
-            <div class="Descripcion">
-                <p th:text="${user.getDescripcion}"></p>
-            </div>
-            <div class="Precio">
-                ₡
-                <p th:text="${user.getPrecio}"></p>
-            </div>
-            <div class="boton">
-                <a  href="#" >
-                    COMPRAR
-                </a>
+                                <div class="producto">
+                                    <div class="Nombre">
+                                        <p th:text="${user.getNombre}"></p>
+                                    </div>
+                                    <div class="Descripcion">
+                                        <p th:text="${user.getDescripcion}"></p>
+                                    </div>
+                                    <div class="Precio">
+                                        ₡
+                                        <p th:text="${user.getPrecio}"></p>
+                                    </div>
+                                    <div class="boton">
+                                        <a  href="#" >
+                                            COMPRAR
+                                        </a>
 
-            </div>
-
-
-        </div>
+                                    </div>
 
 
-    </section:block >
+                                </div>
 
 
-    <footer th:replace="plantilla/template::footer"></footer>
-</body>
+                            </section:block >
 
-</html>
+
+                            <footer th:replace="plantilla/template::footer"></footer>
+                        </body>
+
+                        </html>
 

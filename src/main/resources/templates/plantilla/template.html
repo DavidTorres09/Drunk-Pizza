@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
-<html xmls:th="http://thymeleaf.org"
-      xmls:sec="http://thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -14,7 +15,7 @@
 
     <div class="container">
         <header >
-            <nav th:fragment="nav">
+            <nav th:fragment="nav" >
                     <ul>
                         <li style="--w:#ff0000;--e:#FFC300;">
                             <span class="material-symbols-outlined" >home</span>
@@ -30,15 +31,19 @@
                         </li>
                          <li style="--w:#5B2C6F;--e:#FF00F3;">
                             <span class="material-symbols-outlined" >favorite</span>
-                            <a class="txt" href="#" th:href="@{/opinion}">Opiniones</a>
+                            <a class="txt" href="#" th:href="@{/opinion}">Opinion</a>
                         </li>
-                        <li style="--w:#FF00F3;--e:#3498DB;">
+                        <li style="--w:#FF00F3;--e:#3498DB;" sec:authorize="hasRole('ROLE_VENDEDOR')">
                             <span class="material-symbols-outlined" >groups</span>
-                            <a class="txt" href="#" th:href="@{/cliente}">CLIENTES</a>
+                            <a class="txt" href="#" th:href="@{/cliente}">USUARIOS</a>
                         </li>
-                        <li style="--w:#3498DB;--e:#34495E;">
+                        <li style="--w:#3498DB;--e:#34495E;" sec:authorize="hasRole('ROLE_VENDEDOR')">
                             <span class="material-symbols-outlined" >fastfood</span>
                             <a class="txt" href="#" th:href="@{/productos}">PRODUCTOS</a>
+                        </li>
+                        <li style="--w:#3498DB;--e:#34495E;" sec:authorize="hasRole('ROLE_VENDEDOR')">
+                            <span class="material-symbols-outlined" >favorite</span>
+                            <a class="txt" href="#" th:href="@{/productos}">OPINIONES</a>
                         </li>
                         <li style="--w:#34495E ;--e:#7B241C;">
                             <span class="material-symbols-outlined" >person</span>
@@ -76,7 +81,7 @@
                 <form method="POST" 
                       th:action="@{/logout}" 
                       style="display: inline">                    
-                <a href="#" onclick="this.parentNode.submit();">Logout</a>
+                <a href="#" onclick="this.parentNode.submit();">[[#{plantilla.logout}]]</a>
                 </form>
                 
             </section>

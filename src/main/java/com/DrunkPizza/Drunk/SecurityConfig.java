@@ -92,19 +92,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/articulo/nuevo",        "/articulo/guardar", 
-                             "/articulo/modificar/**", "/articulo/eliminar/**",
-                             "/categoria/nuevo",       "/categoria/guardar",
-                             "/categoria/modificar/**","/categoria/eliminar/**",
-                             "/cliente/nuevo",         "/cliente/guardar",  
-                             "/cliente/modificar/**",  "/cliente/eliminar/**",
-                             "/usuario/listado",  
-                             "/usuario/nuevo",         "/usuario/guardar",  
-                             "/usuario/modificar/**",  "/usuario/eliminar/**",
-                             "/cliente**",  "/producto**")
+                .antMatchers("/cliente", "/clienteNuevo", "/saveProducto", "/editClientes/**", "/deleteCliente/**", "/perfil/**",      
+                             "/", "productos", "/productoN", "/saveProducto", "editProducto/**", "/deleteProducto/**",
+                             "/opinion","/contactenos")
                     .hasRole("ADMIN")
-                .antMatchers("/articulo/listado", "/categoria/listado",
-                             "/cliente/listado")
+                .antMatchers("/cliente", "/clienteNuevo", "/saveProducto", "/editClientes/**", "/deleteCliente/**", "/perfil/**",      
+                             "/", "productos", "/productoN", "/saveProducto", "editProducto/**", "/deleteProducto/**",
+                             "/opinion","/contactenos")
                     .hasAnyRole("ADMIN","VENDEDOR")
                 .antMatchers("/")
                     .hasAnyRole("USER","VENDEDOR","ADMIN")
