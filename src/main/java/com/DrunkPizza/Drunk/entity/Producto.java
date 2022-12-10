@@ -1,6 +1,7 @@
 package com.DrunkPizza.Drunk.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +14,21 @@ public class Producto implements Serializable {
         
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_producto;
+    @Column(name="id_producto")
+    private Long id_producto;
     private String nombre;
     private String descripcion;
     private int precio;
+
+ 
+    
+    @Column(name="ruta_imagen")
+    private String rutaImagen;
+    
+        public Producto() {
+    }
+        
+        
 
     public long getId_producto() {
         return id_producto;
@@ -49,6 +61,16 @@ public class Producto implements Serializable {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+    
+    
     
     
     

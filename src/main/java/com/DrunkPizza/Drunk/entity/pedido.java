@@ -7,12 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Alonso
  */
 @Entity
+@Table(name = "pedido")
 public class pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

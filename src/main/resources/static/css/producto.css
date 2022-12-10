@@ -85,20 +85,7 @@ h1{
     
 }
 
-.boton a{
-    padding: 15px 25px;
-    color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px;
-    background-color: #ffcc33;
-    border-radius: 10px;
 
-}
   
 .boton a:hover {
     background: #ffcc33;

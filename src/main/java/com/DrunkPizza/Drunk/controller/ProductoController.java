@@ -37,7 +37,7 @@ public class ProductoController {
         return "productos";
     }
 
-    @GetMapping("productoN")
+    @GetMapping("productoNuevo")
     public String crearProducto(Model model) {
         model.addAttribute("producto", new Producto());
         return "productoNuevo";

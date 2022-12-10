@@ -4,14 +4,15 @@
  */
 package com.DrunkPizza.Drunk;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
@@ -20,7 +21,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-/*
+
+    /*
     @Autowired
     private UserService userDetailsService;
 
@@ -70,45 +72,37 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login").permitAll().defaultSuccessUrl("/cliente", true);
     }
-*/
-    
-  //El siguiente método funciona para hacer la auttenticación del usuario
-   @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication()
-                .withUser("juan")
-                    .password("{noop}123")
-                    .roles("ADMIN","VENDEDOR","USER")
-                .and()
-                .withUser("rebeca")
-                    .password("{noop}123")
-                    .roles("VENDEDOR","USER")
-                .and()
-                .withUser("pedro")
-                    .password("{noop}123")
-                    .roles("USER");
+     */
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    //El siguiente método funciona para hacer la auttenticación del usuario
+    @Override
+    protected void configure(AuthenticationManagerBuilder builder) throws Exception {
+        builder.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+
     }
-    
-     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/cliente", "/clienteNuevo", "/saveProducto", "/editClientes/**", "/deleteCliente/**", "/perfil/**",      
-                             "/", "productos", "/productoN", "/saveProducto", "editProducto/**", "/deleteProducto/**",
-                             "/opinion","/contactenos")
-                    .hasRole("ADMIN")
-                .antMatchers("/cliente", "/clienteNuevo", "/saveProducto", "/editClientes/**", "/deleteCliente/**", "/perfil/**",      
-                             "/", "productos", "/productoN", "/saveProducto", "editProducto/**", "/deleteProducto/**",
-                             "/opinion","/contactenos")
-                    .hasAnyRole("ADMIN","VENDEDOR")
-                .antMatchers("/")
-                    .hasAnyRole("USER","VENDEDOR","ADMIN")
+                .antMatchers("/cliente", "/clienteNuevo", "/saveProducto", "/editClientes/**", "/deleteCliente/**", "/perfil/**",
+                        "/", "productos", "/productoN", "/saveProducto", "editProducto/**", "/deleteProducto/**",
+                        "/opinion", "/contactenos")
+                .hasRole("ADMIN")
+                .antMatchers("/cliente", "/clienteNuevo", "/saveProducto", "/editClientes/**", "/deleteCliente/**", "/perfil/**",
+                        "/", "productos", "/productoN", "/saveProducto", "editProducto/**", "/deleteProducto/**",
+                        "/opinion", "/contactenos")
+                .hasAnyRole("ADMIN", "VENDEDOR")
+                .antMatchers("/","/carrito")
+                .permitAll()
                 /*SI NO SE ENCUENTRA AUTENTICADO*/
-                .and()
-                    .formLogin()
-                    .loginPage("/login")
+                .antMatchers("/facturar/carrito")
+                .authenticated()
+                .and().formLogin() .loginPage("/login")
                 .and()
                 /*PROBLEMA DE ROLES*/
-                    .exceptionHandling().accessDeniedPage("/errores/403");
-    } 
-}  
-
+                .exceptionHandling().accessDeniedPage("/errores/403");
+    }
+}

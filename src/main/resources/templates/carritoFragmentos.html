@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+            <link rel="icon" href="images\Logo Pizza.ico">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="icon" href="images\Logo Pizza.ico">
+                        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+                        <link rel="stylesheet" type="text/css" media="all" href="/css/producto.css" th:href="@{/css/producto.css}" />
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                        <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"> </script>
+
+                        </head>
+                        <body>
+                            <header>
+                                <nav th:replace="plantilla/template::nav"></nav>
+                            </header>
+
+                            <h2 th:text="${titulo}"></h2>
+                            <h2 th:text="#{articulo.titulo}"></h2>
+                            
+                            
+                            <section th:fragment="listadoProductos" id="productos" >
+                                <div class="container">
+                                    <div class="row row-cols-2">
+                                        <h2 class="inline" th:text="#{index.titulo}"> Nuestros Articulos</h2>
+                                        
+                                        <div id="resultsBlock">
+
+
+                                        </div> 
+                                    </div>
+
+
+                                    <div class="row row-cols-3">
+                                        <div:block th:each="user : ${producto}" class="contenedor_producto">
+                                            <div class="producto" >
+                                                <div class="Nombre">
+                                                    <p th:text="${user.getNombre}"></p>
+                                                </div>
+                                                
+                                                <figure>
+                                                    <img th:src="@{${user.rutaImagen}}" width="200"/>    
+                                                    <div class="Descripcion">
+                                                        <p th:text="${user.getDescripcion}"></p>
+                                                    </div>
+                                                    <div class="Precio">
+                                                        <figcaption>
+                                                            [[${new java.text.DecimalFormat('₡#,##0.00').format(user.getPrecio)}]]
+                                                        </figcaption>
+                                                    </div>
+                                                </figure>
+
+                                                <form>
+                                                    <input type="hidden" name="texto" th:value="${user.getId_producto}"/>
+                                                    <button class="btn btn-light"
+                                                            id="addCar"
+                                                            name="addCar"
+                                                            onclick="addCard(this.form)"
+                                                            type="button">
+                                                        <i class="material-symbols-outlined">Shopping_Cart</i>
+                                                    </button>
+                                                    
+                                                    
+                                                </form>
+                                                
+                                            </div> 
+                                        </div:block>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div th:fragment="verCarrito" th:unless="${#lists.isEmpty(listaItems)}">
+                                <form action ="/carritoListado">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary">
+                                        <i class="material-symbols-outlined"></i>[[#{carrito.verCarrito}]] [[${listaTotal}]]                                       
+                                    </button>                                
+                                </form>   
+                            </div>
+
+
+                            <footer th:replace="plantilla/template::footer"></footer>
+                        </body>
+
+                        </html>
+ 
+
