@@ -1,5 +1,6 @@
 package com.DrunkPizza.Drunk;
 
+import lombok.var;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Encriptar {
