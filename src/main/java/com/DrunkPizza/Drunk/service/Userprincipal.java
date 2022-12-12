@@ -4,7 +4,7 @@
  */
 package com.DrunkPizza.Drunk.service;
 
-import com.DrunkPizza.Drunk.entity.clientes;
+import com.DrunkPizza.Drunk.entity.Clientes;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -18,9 +18,9 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public class Userprincipal implements UserDetails {
 
-    private clientes cliente;
+    private Clientes cliente;
 
-    public Userprincipal(clientes cliente) {
+    public Userprincipal(Clientes cliente) {
         this.cliente = cliente;
     }
 

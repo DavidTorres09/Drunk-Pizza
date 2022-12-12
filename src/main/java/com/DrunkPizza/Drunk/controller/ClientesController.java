@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.DrunkPizza.Drunk.entity.clientes;
+import com.DrunkPizza.Drunk.entity.Clientes;
+import com.DrunkPizza.Drunk.repository.ClienteRepository;
 import com.DrunkPizza.Drunk.service.IClientesService;
 
 @Controller
 public class ClientesController {
+    
+    @Autowired
+    private ClienteRepository clienteRepository;
     
     @Autowired
     private IClientesService clientesService;
@@ -21,7 +25,7 @@ public class ClientesController {
 
     @GetMapping("/cliente")
     public String index(Model model) {
-        List<clientes> listaClientes = clientesService.getAllClientes();
+        List<Clientes> listaClientes = clientesService.getAllClientes();
         model.addAttribute("titulo", "Cliente");
         model.addAttribute("cliente", listaClientes);
         return "cliente";
@@ -29,20 +33,20 @@ public class ClientesController {
 
     @GetMapping("clienteNuevo")
     public String crearCliente(Model model) {
-        model.addAttribute("cliente", new clientes());
+        model.addAttribute("cliente", new Clientes());
         return "clienteNuevo";
     }
     
     
     @PostMapping("/saveCliente")
-    public String guardarCliente(@ModelAttribute clientes cliente){
+    public String guardarCliente(@ModelAttribute Clientes cliente){
         clientesService.saveCliente(cliente);
         return "redirect:/cliente";
     }
     
     @GetMapping("/editClientes/{id}")
     public String editarCliente(@PathVariable("id")Long idCliente, Model model){
-        clientes cliente = clientesService.getClienteById(idCliente);
+        Clientes cliente = clientesService.getClienteById(idCliente);
         model.addAttribute("cliente", cliente);
         return "clienteNuevo";
     }
@@ -55,7 +59,7 @@ public class ClientesController {
     
     @GetMapping("/perfil/{id}")
     public String perfil(@PathVariable("id") Long idCliente, Model model) {
-        clientes cliente = clientesService.getClienteById(idCliente);
+        Clientes cliente = clientesService.getClienteById(idCliente);
         model.addAttribute("cliente", cliente);
         return "/perfil";
     }

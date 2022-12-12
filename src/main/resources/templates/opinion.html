@@ -9,42 +9,42 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head>
         <title>Opiniones</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
-    </head>
-    <body>
+                </head>
+                <body>
 
-        <header>
-            <nav th:replace="plantilla/template::nav"></nav>
-        </header>
+                    <header>
+                        <nav th:replace="plantilla/template::nav"></nav>
+                    </header>
 
-        <h1 th:text="#{cliente.opinion}"></h1>
-
-
-    <section:block th:each="user : ${opinion}" class="contenedor_opinion">
-
-        <div class="Opinion">
-            <div class="Nombre">
-                <h2 th:text="#{cliente.nombre}"></h2>
-                <p th:text="${user.getClientes.getNombre}"></p>
-            </div>
-
-            <div class="Opinion">
-                <h2>Email</h2>
-                <p th:text="${user.getClientes.getEmail}"></p>
-            </div>
-            <div class="Opinion">
-                <h2>Opinion</h2>
-                <p th:text="${user.getOpinion}"></p>
-            </div>
-
-        </div>
+                    <h1 th:text="#{cliente.opinion}"></h1>
 
 
-    </section:block >
-    
-    <footer th:replace="plantilla/template::footer"></footer>
+                    <section:block th:each="user : ${opinion}" class="contenedor_opinion">
+
+                        <div class="Opinion">
+                            <div class="Nombre">
+                                <h2 th:text="#{cliente.nombre}"></h2>
+                                <p th:text="${user.getClientes.getNombre}"></p>
+                            </div>
+
+                            <div class="Opinion">
+                                <h2>Email</h2>
+                                <p th:text="${user.getClientes.getEmail}"></p>
+                            </div>
+                            <div class="Opinion">
+                                <h2>Opinion</h2>
+                                <p th:text="${user.getOpinion}"></p>
+                            </div>
+
+                        </div>
 
 
-</body>
-</html>
+                    </section:block >
+
+                    <footer th:replace="plantilla/template::footer"></footer>
+
+
+                </body>
+                </html>

@@ -25,7 +25,7 @@ public class opiniones implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="id_cliente")
-    private clientes clientes;
+    private Clientes clientes;
 
     public long getId() {
         return id;
@@ -43,11 +43,11 @@ public class opiniones implements Serializable {
         this.opinion = opinion;
     }
 
-    public clientes getClientes() {
+    public Clientes getClientes() {
         return clientes;
     }
 
-    public void setClientes(clientes clientes) {
+    public void setClientes(Clientes clientes) {
         this.clientes = clientes;
     }
     

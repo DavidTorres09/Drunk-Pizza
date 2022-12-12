@@ -4,43 +4,43 @@
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
     <head>
         <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-            <link rel="icon" href="images\Logo Pizza.ico">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <link rel="icon" href="images\Logo Pizza.ico">
-                        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
-                        <link rel="stylesheet" type="text/css" media="all" href="/css/producto.css" th:href="@{/css/producto.css}" />
-                        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
- 
-                         <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"> </script>
-                        </head>
-    
-    
-                        <body>
-                            <header>
-                                <nav th:replace="plantilla/template::nav"></nav>
-                            </header>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" href="images\Logo Pizza.ico"/>
+        <link rel="icon" href="images\Logo Pizza.ico"/>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+        <link rel="stylesheet" type="text/css" media="all" href="/css/producto.css" th:href="@{/css/producto.css}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-                            <h1 th:text="${titulo}"></h1>
-                            <h1 th:text="#{articulo.titulo}"></h1>
-
-                            <section th:replace="carritoFragmentos::listadoProductos"/>
+        <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    </head>
 
 
-                            <footer th:replace="plantilla/template::footer"></footer>
+    <body>
+        <header>
+            <nav th:replace="plantilla/template::nav"></nav>
+        </header>
 
-                            <script>
-                                function addCard(formulario){
-                                    var valor=formulario.elements[0].value;
-                                    var url= '/carrito/agregar';
-                                    url = url + '/' +valor;
-                                    $("#resultsBlock").load(url);
-                                    
-                                    alert("URL: " + url);
-                                }
-                                
-                            </script>
-                        </body>
+        <h1 th:text="${titulo}"></h1>
+        <h1 th:text="#{articulo.titulo}"></h1>
 
-                        </html>
+        <section th:replace="carritoFragmentos::listadoProductos"></section>
+        <script>
+            function addCard(formulario) {
+                var valor = formulario.elements[0].value;
+                var url = '/carrito/agregar';
+                url = url + '/' + valor;
+                $("#resultsBlock").load(url);
+
+                alert("URL: " + url);
+            }
+
+        </script>
+
+        <footer th:replace="plantilla/template::footer"></footer>
+
+
+    </body>
+
+</html>
 

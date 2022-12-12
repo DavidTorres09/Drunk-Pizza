@@ -35,18 +35,27 @@ public class CarritoController {
     }
 
     //Para agregar un articulo al carrito
-    @GetMapping("/carrito/agregar/{id}")
+    @GetMapping("/carrito/agregar/{id_producto}")
     public ModelAndView agregarProducto(Model model, Item item) {
-                Item item2 = itemService.getItem(item);
-                
-          
+
+        Item item2 = itemService.getItem(item);
         
         if (item2 == null) {
             Producto producto = productoService.getProducto(item);
             item2 = new Item(producto);
         }  
+        itemService.saveItem(item2);
+        var lista = itemService.getAllItems();
+        var totalCarritos = 0;
+        var carritoTotalVenta = 0;
+        for (Item i : lista) {
+            totalCarritos += i.getCantidad();
+            carritoTotalVenta += (i.getCantidad() * i.getPrecio());
+        }
+        model.addAttribute("listaItems", lista);
+        model.addAttribute("listaTotal", totalCarritos);
+        model.addAttribute("carritoTotal", carritoTotalVenta);
 
-        
 
         return new ModelAndView("/carritoFragmentos :: verCarrito");
     }

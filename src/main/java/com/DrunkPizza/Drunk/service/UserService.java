@@ -4,7 +4,7 @@
  */
 package com.DrunkPizza.Drunk.service;
 
-import com.DrunkPizza.Drunk.entity.clientes;
+import com.DrunkPizza.Drunk.entity.Clientes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,7 +23,7 @@ public class UserService implements UserDetailsService {
     
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-        clientes cliente = this.clienteService.findByNombre(username);
+        Clientes cliente = this.clienteService.findByNombre(username);
         Userprincipal userPrincipal = new Userprincipal(cliente);
         return userPrincipal;
     }

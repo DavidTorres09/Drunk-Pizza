@@ -1,6 +1,6 @@
 package com.DrunkPizza.Drunk.service;
 
-import com.DrunkPizza.Drunk.entity.clientes;
+import com.DrunkPizza.Drunk.entity.Clientes;
 import java.util.List;
 
 /**
@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface IClientesService {
     
-    public List<clientes> getAllClientes();
-    public clientes getClienteById (long id);
-    public void saveCliente (clientes cliente);
+    public List<Clientes> getAllClientes();
+    public Clientes getClienteById (long id);
+    public void saveCliente (Clientes cliente);
     public void delete (long id);
-    public clientes findByNombre (String nombre);
-    
+    public Clientes findByNombre(String nombre);
+
 }

@@ -1,9 +1,9 @@
 package com.DrunkPizza.Drunk.service;
-import com.DrunkPizza.Drunk.entity.clientes;
-import com.DrunkPizza.Drunk.repository.ClientesRepository;
+import com.DrunkPizza.Drunk.entity.Clientes;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.DrunkPizza.Drunk.repository.ClienteRepository;
 /**
  *
  * @author angel
@@ -12,20 +12,20 @@ import org.springframework.stereotype.Service;
 public class ClientesService implements IClientesService {
     
     @Autowired
-    private ClientesRepository clienteRepository;
+    private ClienteRepository clienteRepository;
 
     @Override
-    public List<clientes> getAllClientes() {
-        return (List<clientes>)clienteRepository.findAll();
+    public List<Clientes> getAllClientes() {
+        return (List<Clientes>)clienteRepository.findAll();
     }
 
     @Override
-    public clientes getClienteById(long id) {
+    public Clientes getClienteById(long id) {
         return clienteRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void saveCliente(clientes cliente) {
+    public void saveCliente(Clientes cliente) {
         clienteRepository.save(cliente);
     }
 
@@ -35,7 +35,7 @@ public class ClientesService implements IClientesService {
     }
 
     @Override
-    public clientes findByNombre(String nombre) {
+    public Clientes findByNombre(String nombre) {
         return clienteRepository.findByNombre(nombre);
     }
     
