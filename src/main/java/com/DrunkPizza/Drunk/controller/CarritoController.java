@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +25,7 @@ public class CarritoController {
     private IProductoService productoService;
 
     //Para ver el carrito
-    @GetMapping("/carritoListado")
+    @GetMapping("/carrito/carritoListado")
     public String inicio(Model model) {
         var items = itemService.getItems();
         model.addAttribute("items", items);
@@ -35,7 +34,7 @@ public class CarritoController {
             carritoTotalVenta += (i.getCantidad() * i.getPrecio());
         }
         model.addAttribute("carritoTotal", carritoTotalVenta);
-        return "/carritoListado";
+        return "/carrito/carritoListado";
     }
 
     //Para agregar un articulo al carrito
@@ -57,7 +56,7 @@ public class CarritoController {
         model.addAttribute("listaItems", lista);
         model.addAttribute("listaTotal", totalCarritos);
         model.addAttribute("carritoTotal", carritoTotalVenta);
-        return new ModelAndView("/carritoFragmentos :: verCarrito");
+        return new ModelAndView("/carrito/carritoFragmentos :: verCarrito");
     }
 
     //Para modificar articulo de carrito
@@ -65,25 +64,25 @@ public class CarritoController {
     public String modificarCarrito(Item item, Model model) {
         item = itemService.getItem(item);
         model.addAttribute("item", item);
-        return "/carritoModificar";
+        return "/carrito/carritoModificar";
     }
 
     //Para elminar producto del carrito
     @GetMapping("/carrito/eliminar/{id_producto}")
     public String eliminaritem(Item item) {
         itemService.delete(item);
-        return "redirect:/carritoListado";
+        return "redirect:/carrito/carritoListado";
     }
 
     //Para actualizar un articulo del carrito (Cantidad)
     @PostMapping("/carrito/guardar")
     public String guardaritem(Item item) {
         itemService.actualiza(item);
-        return "redirect:/carritoListado";
+        return "redirect:/carrito/carritoListado";
     }
 
     //Para facturar los articulos del carrito... no implementado...
-    @GetMapping("facturar/carrito")
+    @GetMapping("/facturar/carrito")
     public String facturarCarrito() {
         itemService.facturar();
         return "redirect:/";

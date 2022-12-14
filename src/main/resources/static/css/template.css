@@ -189,8 +189,9 @@ span.material-symbols-outlined{
 
 
 /*LOGO */
-.logo{
-    width: 140px;
+#logo{
+    width: 120px;
+    height: 120px;
     cursor: pointer;
 }
 
@@ -205,6 +206,7 @@ footer {
     margin: 0;
     border: none;
     background-color: #333333;
+    margin-top: 200px;
 
 }
 
@@ -223,6 +225,7 @@ footer a{
     color: white;
     text-decoration: none;
     text-align: right;
+    margin-top: 50px;
 }
 
 footer a:hover{
@@ -245,6 +248,7 @@ footer span.material-symbols-outlined{
 .user h2 {
     color: white;
     font-size: 20px;
+    text-transform: uppercase;
 }
 
 

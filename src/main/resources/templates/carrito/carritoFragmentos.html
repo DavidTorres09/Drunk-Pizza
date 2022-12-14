@@ -22,9 +22,6 @@
 
 
 
-                    <div id="resultsBlock">
-
-                    </div>
 
                     <section th:fragment="listadoProductos" id="productos" >
                         <div class="container">
@@ -43,7 +40,9 @@
                                         </div>
 
                                         <figure>
-                                            <img th:src="@{${user.rutaImagen}}" width="200"/>    
+                                            <img th:src="@{${user.rutaImagen}}" width="200"/> 
+
+                                            <p th:text="${user.getId_categoria.getDescripcion}" class="Categoria"></p>
                                             <div class="Descripcion">
                                                 <p th:text="${user.getDescripcion}"></p>
                                             </div>
@@ -55,7 +54,7 @@
                                         </figure>
 
                                         <form>
-                                            <input type="hidden" name="texto" th:value="${user.getId_producto}"/>
+                                            <input type="hidden" name="texto" th:value="${user.getId_producto}" sec:authorize="isAuthenticated()"/>
                                             <button class="btn-light"
                                                     id="addCar"
                                                     name="addCar"
@@ -71,33 +70,36 @@
                     </section>
 
                     <div th:fragment="verCarrito" th:unless="${#lists.isEmpty(listaItems)}">
-                        <form action ="/carritoListado">
+                        <form action ="/carrito/carritoListado">
                             <button
                                 type="submit"
                                 class="btn btn-primary">
-                                <i class="material-symbols-outlined"></i>[[#{carrito.verCarrito}]] [[${listaTotal}]]                                       
+                                <i class="material-symbols-outlined"></i>[[#{carrito.cantidadCarrito}]] [[${listaTotal}]]                                       
                             </button>                                
                         </form>   
                     </div>
 
 
 
-                    <section th:fragment="listadoCarrito" id="Carrito" >
+                    <section th:fragment="listadoCarrito" id="Carrito" class="main">
                         <div class="container">
                             <table border="1">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>[[#{articulo.nombre}]]</th>
-                                        <th>[[#{articulo.precio}]]</th>
-                                        <th>[[#{articulo.cantidad}]]</th>
-                                        <th>[[#{articulo.total}]]</th>
+                                        <th>[[#{producto.nombre}]]</th>
+                                        <th>[[#{producto.categoria}]]</th>
+                                        <th>[[#{producto.precio}]]</th>
+                                        <th>[[#{producto.cantidad}]]</th>
+                                        <th>[[#{producto.total}]]</th>
+                                        <th COLSPAN="2">[[#{producto.acciones}]]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="item :${items}">
                                         <td>[[${item.getId_producto}]]</td>
                                         <td >[[${item.getNombre}]]</td>
+                                        <td >[[${item.getId_categoria.getDescripcion}]]</td>
                                         <td>[[${new java.text.DecimalFormat('₡#,##0.00').format(item.getPrecio)}]]</td>
                                         <td>[[${new java.text.DecimalFormat('# ###,##0').format(item.getCantidad)}]]</td>
                                         <td>[[${new java.text.DecimalFormat('₡#,###,##0.00').format(item.getCantidad*item.getPrecio)}]]</td></td>
@@ -105,40 +107,38 @@
                                             <a th:href="@{/carrito/eliminar/{id}(id=${item.getId_producto})}">[[#{accion.eliminar}]]</a>
                                         </td>
                                         <td>
-                                            <a th:href="@{/carrito/modificar/{id}(id=${item.getId_producto})}">[[#{accion.editar}]]</a>
+                                            <a th:href="@{/carrito/modificar/{id}(id=${item.getId_producto})}">[[#{accion.actualizar}]]</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
 
+                            <div class="content1">
+                                <div>
+                                    <div class="card-body">
+                                        <h3>[[#{carrito.totalCompra}]]</h3>
+                                        <h4>
+                                            [[${new java.text.DecimalFormat('₡#,##0.00').format(carritoTotal)}]]
+                                        </h4>
+                                    </div>                                
+                                </div>
+                                <div>
+                                    <div class="card-body">
+                                        <a th:href="@{/}">
+                                            [[#{carrito.seguirComprando}]]
+                                        </a>
+                                    </div>                                  
+                                </div>
+                                <div>
+                                    <div class="card-body">
+                                        <a th:href="@{/facturar/carrito}">
+                                            [[#{carrito.facturar}]]
+                                        </a>
+                                    </div>                                  
+                                </div>
 
-                        </div>
-
-                        <div>
-                            <div>
-                                <div class="card-body">
-                                    <h3>[[#{carrito.totalCompra}]]</h3>
-                                    <h4>
-                                        [[${new java.text.DecimalFormat('₡#,##0.00').format(carritoTotal)}]]
-                                    </h4>
-                                </div>                                
                             </div>
-                            <div>
-                                <div class="card-body">
-                                    <a th:href="@{/}">
-                                        <i class="material-symbols-outlined">[[#{carrito.seguirComprando}]]</i>
-                                    </a>
-                                </div>                                  
-                            </div>
-                            <div>
-                                <div class="card-body">
-                                    <a th:href="@{facturar/carrito}">
-                                        <i class="material-symbols-outlined">[[#{carrito.facturar}]]</i>
-                                    </a>
-                                </div>                                  
-                            </div>
-
-                        </div>
+                        </div>                  
                     </section>
 
 

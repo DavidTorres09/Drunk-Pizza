@@ -12,11 +12,11 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "cliente")
 public class Clientes implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id_cliente;
     
     /*INFORMACION PERSONAL DEL CLIENTE*/
     private String nombre;
@@ -31,17 +31,17 @@ public class Clientes implements Serializable{
     private int active = 0;
     private String roles = "";
     private String permissions = "";
-    
-    
-    
-    /*GET AND SET*/
 
-    public long getId() {
-        return id;
+
+    
+
+    public long getId_cliente() {
+        return id_cliente;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    /*GET AND SET*/
+    public void setId_cliente(long id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getNombre() {

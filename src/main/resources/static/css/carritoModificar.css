@@ -1,0 +1,78 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 dic 2022, 02:13:27
+    Author     : angel
+*/
+
+.container {
+    margin-top: 50px;
+    display: block;
+    align-items: center;
+    text-align:center;
+
+}
+
+.volver {
+    text-align: left;
+    margin-left: 50px;
+
+
+}
+
+.volver a, h6, label{
+    font-size: 18px;
+    text-decoration: none;
+    color: #990000;
+    height: 800;
+
+}
+.card {
+    align-items: center;
+    text-align:center;
+}
+
+input{
+    align-items: center;
+    text-align:center;
+    padding: 0;
+}
+
+h5{
+    color: #990000;
+    font-size: 24px;
+    height: 800;
+}
+
+.imagen-producto{
+    margin-top: 20px;
+}
+
+#guardar{
+    font-size: 24px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    background-color: #ffff00;
+    margin: 20px 0 20px 0;
+
+}
+
+#guardar:hover{
+    box-shadow: 0 0 5px #ffff00,
+        0 0 25px #ffff00,
+        0 0 50px #ffff00,
+        0 0 100px #ffff00;
+    cursor: pointer;
+
+}
+
+#eliminar{
+
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+

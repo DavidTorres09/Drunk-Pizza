@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Drunk Pizza</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FLogo.png?alt=media&token=03af6e79-b636-4eca-9e1b-67eef53165e0"/>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+
+    </head>
+    <body>
+
+        <header>
+            <nav th:replace="plantilla/template::nav"></nav>
+        </header>
+
+        <h1 th:text="#{cliente.opinion}"></h1>
+
+
+    <section class="contenedor_opinion">
+
+        
+        <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>[[#{cliente.nombre}]]</th>
+                                        <th>[[#{cliente.correo}]]</th>
+                                        <th>[[#{cliente.opinion}]]</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="user : ${opinion}">
+                                        <td>[[${user.getClientes.id_cliente}]]</td>
+                                        <td >[[${user.getClientes.getNombre}]][[${user.getClientes.apellido1}]][[${user.getClientes.apellido2}]]</td>
+                                        <td >[[${user.getClientes.email}]]</td>
+                                        <td>[[${user.getOpinion}]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+    </section >
+
+    <footer th:replace="plantilla/template::footer"></footer>
+
+</body>
+</html>

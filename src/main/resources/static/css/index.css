@@ -17,7 +17,7 @@ h1{
     color: #000000;
     margin-top: 40px;
     letter-spacing: 4px;
-     text-transform: uppercase;
+    text-transform: uppercase;
 
 }
 
@@ -32,12 +32,12 @@ h1{
     text-align: center;
     background-color: #990000;
     width: 400px;
-    height: 300px;
+    height: 350px;
     border: 1px solid #420303a9;
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
     align-items: center;
-    margin-bottom: 10px;
+
 
 }
 
@@ -52,8 +52,12 @@ h1{
 
 /*ETIQUETAS*/
 
+
+#productos{
+    margin-bottom: 80px;   
+}
 .producto{
-    width: 400px;;
+    width: 400px;    
     height: 250px;
 
 }
@@ -66,7 +70,7 @@ h1{
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 4px;
-    
+
 }
 
 .descripcion{
@@ -74,12 +78,12 @@ h1{
     margin-bottom: 10px;
     font-size: 16px;
     color: white;
-    
+
 }
 
 .precio{
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     color: white;
     font-weight: 800;
     margin-top: 75px;
@@ -89,26 +93,36 @@ h1{
     display: inline;
     margin: 30px;
 
-    
+
+}
+
+.Categoria{
+    display: flex;
+    justify-content: center;
+    color: #cccccc;
+    font-weight: 800;
+    margin-top: 2px;
+    margin-bottom: 7px;
+
 }
 
 
-  
+
 .boton a:hover {
     background: #ffcc33;
     color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0 0 5px #ffff00,
-                0 0 25px #ffff00,
-                0 0 50px #ffff00,
-                0 0 100px #ffff00;
+        0 0 25px #ffff00,
+        0 0 50px #ffff00,
+        0 0 100px #ffff00;
 }
 
 hr{
     margin-left: 37%;
     margin-right: 37%;
     margin-top: 5px;
-    
+
 }
 
 img{
@@ -116,7 +130,7 @@ img{
     height: 120px;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+
 }
 
 #logo{
@@ -129,44 +143,52 @@ img{
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 18px;
-    
+
 }
 
 .Precio {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 14px;
-    
+
 }
 
-.btn-light {
+button {
     padding: 0 10px 0 10px;
     border-radius: 10px;
     background-color: #ffff00;
 
-    
+
 }
 
 .btn-light:hover {
-    
+
     box-shadow: 0 0 5px #ffff00,
-                0 0 25px #ffff00,
-                0 0 50px #ffff00,
-                0 0 100px #ffff00;
+        0 0 25px #ffff00,
+        0 0 50px #ffff00,
+        0 0 100px #ffff00;
 }
 
 button .material-symbols-outlined{
     color: #000000;
-    
+
 }
 
 #resultsBlock{
- margin: 20px;   
-    
+    margin: 20px;
+
+}
+
+.btn btn-primary{
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    background-color: #ffff00;
+   
 }
 
 
 
-  
+
+
 
 

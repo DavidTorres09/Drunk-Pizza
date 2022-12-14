@@ -14,18 +14,18 @@ import javax.persistence.Table;
  * @author Alonso
  */
 @Entity
-@Table(name="opiniones")
+@Table(name="opinion")
 public class opiniones implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    private String opinion;
-    
     @ManyToOne
     @JoinColumn(name="id_cliente")
     private Clientes clientes;
+    
+    private String opinion;
 
     public long getId() {
         return id;

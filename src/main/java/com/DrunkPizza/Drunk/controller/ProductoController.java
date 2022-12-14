@@ -1,6 +1,9 @@
 package com.DrunkPizza.Drunk.controller;
 
+import com.DrunkPizza.Drunk.entity.Categoria;
 import com.DrunkPizza.Drunk.entity.Producto;
+import com.DrunkPizza.Drunk.service.CategoriaService;
+import com.DrunkPizza.Drunk.service.ICategoriaService;
 import com.DrunkPizza.Drunk.service.IProductoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,9 @@ public class ProductoController {
     @Autowired
     private IProductoService productoService;
 
+    @Autowired
+    private ICategoriaService categoriaService;
+
     @GetMapping("/")
     public String index(Model model) {
         List<Producto> listaProducto = productoService.getAllProducto();
@@ -34,27 +40,34 @@ public class ProductoController {
         List<Producto> listaProducto = productoService.getAllProducto();
         model.addAttribute("titulo", "Productos");
         model.addAttribute("producto", listaProducto);
-        return "productos";
+        return "/productos/productos";
     }
 
-    @GetMapping("productoNuevo")
+    @GetMapping("/CrearProducto")
     public String crearProducto(Model model) {
+        List<Categoria> listaCategoria = categoriaService.listCategoria();
+        
         model.addAttribute("producto", new Producto());
-        return "productoNuevo";
+        model.addAttribute("descripcion", listaCategoria);
+        
+        return "/productos/productoModificar";
     }
 
     @PostMapping("/saveProducto")
     public String guardarProducto(@ModelAttribute Producto producto) {
-        productoService.saveProducto(producto);
-        return "redirect:/";
+        productoService.saveProducto(producto);        
+        return "redirect:/productos";
     }
 
     @GetMapping("/editProducto/{id}")
     public String editarProducto(@PathVariable("id") Long idProducto, Model model) {
         Producto producto = productoService.getProductoById(idProducto);
+        List<Categoria> listaCategoria = categoriaService.listCategoria();
+        
+        model.addAttribute("descripcion", listaCategoria);
         model.addAttribute("producto", producto);
 
-        return "productoNuevo";
+        return "/productos/productoModificar";
     }
 
     @GetMapping("/deleteProducto/{id}")

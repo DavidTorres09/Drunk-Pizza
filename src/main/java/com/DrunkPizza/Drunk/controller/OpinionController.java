@@ -22,12 +22,12 @@ public class OpinionController {
     @Autowired
     private IOpinionesService opinionesService;
     
-    @GetMapping("/opinion")
+    @GetMapping("/Opiniones/Opiniones")
     public String index(Model model) {
         List<opiniones> listaOpinion = opinionesService.getAllOpiniones();
         model.addAttribute("titulo", "Opiniones");
         model.addAttribute("opinion", listaOpinion);
-        return "opinion";
+        return "/opiniones/opiniones";
     }
     
 }

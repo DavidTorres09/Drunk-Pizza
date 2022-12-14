@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>Producto</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="icon" href="images\Logo Pizza.ico">
+                    <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+                    <link rel="stylesheet" type="text/css" media="all" href="/css/index.css" th:href="@{/css/index.css}" />
+                    <link rel="stylesheet" type="text/css" media="all" href="/css/productos.css" th:href="@{/css/productos.css}" />
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                    </head>
+                    <body>
+                        <header>
+                            <nav th:replace="plantilla/template::nav"></nav>
+                        </header>
+
+                        <h1 th:text="#{articulo.titulo}"></h1>
+
+
+                        <section th:fragment="listadoProductos" id="productos" >
+                            <div class="container">
+                                <div class="row row-cols-2">
+
+                                    <div id="resultsBlock">
+
+
+                                    </div> 
+                                </div>
+                                <div class="row row-cols-3">
+                                    <div:block th:each="user : ${producto}" class="contenedor_producto">
+                                        <div class="producto" >
+                                            <div class="Nombre">
+                                                <p th:text="${user.getNombre}"></p>
+                                            </div>
+
+                                            <figure>
+                                                <img th:src="@{${user.rutaImagen}}" width="200"/> 
+
+                                                <p th:text="${user.getId_categoria.getDescripcion}" class="Categoria"></p>
+                                                <div class="Descripcion">
+                                                    <p th:text="${user.getDescripcion}"></p>
+                                                </div>
+                                                <div class="Precio">
+                                                    <figcaption>
+                                                        [[${new java.text.DecimalFormat('₡#,##0.00').format(user.getPrecio)}]]
+                                                    </figcaption>
+                                                </div>
+                                            </figure>
+
+                                            <div class="botones">
+                                                <div class="boton">
+                                                    <a th:href="@{/editProducto/{id} (id=${user.getId_producto})}">Edit</a>
+                                                </div>
+                                                
+                                                <!-- <div class="boton">
+                                                    <a th:href="@{/deleteProducto/{id}(id=${user.getId_producto})}">Delete</a>
+                                                </div> -->  
+
+                                            </div>
+
+                                        </div> 
+                                    </div:block>
+                                </div>
+                            </div>
+                        </section>
+                        <br>
+                            <br>
+                                <br>
+                                    <br>
+                                        <br>
+
+
+                                            <!-- Si la lista esta vacia 
+                                            <div th:if ="${producto == nulll or producto.empty}">
+                                                No tenemos lista de productos que mostrar...
+                                            </div>
+
+                                            <button>
+                                                <a th:href="@{/CrearProducto}">Crear Producto</a>
+                                            </button>-->
+
+
+                                            <footer th:replace="plantilla/template::footer"></footer>
+                                            </body>
+                                            </html>

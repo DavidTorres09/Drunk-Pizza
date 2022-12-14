@@ -34,7 +34,7 @@
                                         </li>
                                         <li style="--w:#FFC300;--e:#196F3D    ">
                                             <span class="material-symbols-outlined" >shopping_cart_checkout</span>
-                                            <a class="txt" href="#" th:href="@{/carritoListado}">[[#{nav.carrito}]]</a>
+                                            <a class="txt" href="#" th:href="@{/carrito/carritoListado}">[[#{nav.carrito}]]</a>
                                         </li>
                                         <li style="--w:#196F3D; --e:#5B2C6F ">
                                             <span class="material-symbols-outlined" >call</span>
@@ -54,7 +54,7 @@
                                         </li>
                                         <li style="--w:#3498DB;--e:#ffffff;" sec:authorize="hasRole('ROLE_VENDEDOR')">
                                             <span class="material-symbols-outlined" >favorite</span>
-                                            <a class="txt" href="#" th:href="@{/productos}">[[#{nav.opiniones}]]</a>
+                                            <a class="txt" href="#" th:href="@{/Opiniones/Opiniones}">[[#{nav.opiniones}]]</a>
                                         </li>
                                         <li style="--w:#ffffff;--e:#ff0000;" sec:authorize="hasRole('ROLE_VENDEDOR')">
                                             <span class="material-symbols-outlined" >logout</span>

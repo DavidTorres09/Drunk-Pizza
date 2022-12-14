@@ -13,6 +13,7 @@ public class Item extends Producto {
     
     public Item(Producto producto){
         super.setId_producto(producto.getId_producto());
+        super.setId_categoria(producto.getId_categoria());
         super.setNombre(producto.getNombre());
         super.setRutaImagen(producto.getRutaImagen());
         super.setDescripcion(producto.getDescripcion());

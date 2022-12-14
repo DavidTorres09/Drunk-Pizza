@@ -5,17 +5,30 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FLogo.png?alt=media&token=03af6e79-b636-4eca-9e1b-67eef53165e0"/>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+        <link rel="stylesheet" type="text/css" media="all" href="/css/CarritoModificar.css" th:href="@{/css/CarritoModificar.css}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
 
+        <header>
+            <nav th:replace="plantilla/template::nav"></nav>
+        </header>
+
+
 
         <div class="container">
+            <div class="volver">
+                <a th:href="@{/carritoListado}">Volver</a>
+            </div>
             <div class="card-header bg-black text-white"> </div>
             <div class="card">
 
                 <div class="card-body">
                     <h5> [[${item.getNombre}]]</h5>
-                    
+                    <h5> [[${item.getId_categoria.getDescripcion}]]</h5>
+
                 </div>
 
 
@@ -23,7 +36,7 @@
                 <div class="card">
                     <div class="card-body">
                         <figure>
-                            <img th:src="@{${item.getRutaImagen}}" width="120"/>
+                            <img th:src="@{${item.getRutaImagen}}" width="250" id="imagen-producto"/>
                             <h6>[[${new java.text.DecimalFormat('₡#,###,##0.00').format(item.getCantidad*item.getPrecio)}]]</h6>
                         </figure>
                         <form th:action="@{/carrito/guardar}"
@@ -31,24 +44,23 @@
                               th:object = "${item}">
                             <input type="hidden" name="id_producto" th:field="*{id_producto}">  
                             <div>
-                                <label for="cantidad">[[#{carrito.cantidad}]]</label>
+                                <label for="cantidad">[[#{carrito.cantidadCarrito}]]</label>
                                 <input type="number" name="cantidad" th:field="*{cantidad}" min='1'>
                             </div>
                             <div>
-                                <button type="submit" name="guardar">
-                                    <i>Guardar</i>[[#{accion.guardar}]]
+                                <button type="submit" name="guardar" id="guardar">
+                                    [[#{accion.guardar}]]
                                 </button>
                             </div>
                         </form>
-                        <a th:href="@{/carrito/eliminar/{id}(id=${item.getId_producto})}">[[#{accion.eliminar}]]</a>
+                        <a th:href="@{/carrito/eliminar/{id}(id=${item.getId_producto})}" id="eliminar">[[#{accion.eliminar}]]</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="volver">
-            <a th:href="@{/carritoListado}">Volver</a>
-        </div>
+
+        <footer th:replace="plantilla/template::footer"></footer>
 
 
     </body>
