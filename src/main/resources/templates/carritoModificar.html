@@ -7,6 +7,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+
+
+        <div class="container">
+            <div class="card-header bg-black text-white"> </div>
+            <div class="card">
+
+                <div class="card-body">
+                    <h5> [[${item.getNombre}]]</h5>
+                    
+                </div>
+
+
+                <!-------------------Esto es un Formulario--------------- -->
+                <div class="card">
+                    <div class="card-body">
+                        <figure>
+                            <img th:src="@{${item.getRutaImagen}}" width="120"/>
+                            <h6>[[${new java.text.DecimalFormat('₡#,###,##0.00').format(item.getCantidad*item.getPrecio)}]]</h6>
+                        </figure>
+                        <form th:action="@{/carrito/guardar}"
+                              method="POST"
+                              th:object = "${item}">
+                            <input type="hidden" name="id_producto" th:field="*{id_producto}">  
+                            <div>
+                                <label for="cantidad">[[#{carrito.cantidad}]]</label>
+                                <input type="number" name="cantidad" th:field="*{cantidad}" min='1'>
+                            </div>
+                            <div>
+                                <button type="submit" name="guardar">
+                                    <i>Guardar</i>[[#{accion.guardar}]]
+                                </button>
+                            </div>
+                        </form>
+                        <a th:href="@{/carrito/eliminar/{id}(id=${item.getId_producto})}">[[#{accion.eliminar}]]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="volver">
+            <a th:href="@{/carritoListado}">Volver</a>
+        </div>
+
+
     </body>
 </html>

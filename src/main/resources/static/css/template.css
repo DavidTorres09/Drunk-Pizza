@@ -93,7 +93,7 @@ li{
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: 0.5s;
-    margin-left: 70px;
+    margin-left: 5px;
 
 }
 
@@ -234,10 +234,19 @@ footer span.material-symbols-outlined{
 
 }
 
-a {
-    text-decoration: none;
-
+.Principal{
+    margin-right:  80px;
+    display: block;
+    align-items: center;
 }
+
+
+.user h2 {
+    color: white;
+    font-size: 20px;
+}
+
+
 
 
 

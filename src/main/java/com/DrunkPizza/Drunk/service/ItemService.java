@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ItemService implements IItemService {
 
     @Override
-    public List<Item> getAllItems() {
+    public List<Item> getItems() {
         return listaItems;
     }
 
@@ -25,10 +25,11 @@ public class ItemService implements IItemService {
             if (Objects.equals(c.getId_producto(), item.getId_producto())) {
                 c.setCantidad(c.getCantidad() + 1);
 
-            }
+            
             existe = true;
             break;
         }
+    }
         if (!existe) {//Si no esta el producto en el carrito entonces lo agrega cantidad = 1.
             item.setCantidad(1);
             listaItems.add(item);

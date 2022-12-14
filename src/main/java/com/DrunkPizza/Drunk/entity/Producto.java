@@ -27,6 +27,16 @@ public class Producto implements Serializable {
     
         public Producto() {
     }
+
+    public Producto(Long id_producto, String nombre, String descripcion, int precio, String rutaImagen) {
+        this.id_producto = id_producto;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.rutaImagen = rutaImagen;
+    }
+        
+        
         
         
 
@@ -34,7 +44,7 @@ public class Producto implements Serializable {
         return id_producto;
     }
 
-    public void setId_producto(long id_producto) {
+    public void setId_producto(Long id_producto) {
         this.id_producto = id_producto;
     }
 
@@ -69,6 +79,8 @@ public class Producto implements Serializable {
     public void setRutaImagen(String rutaImagen) {
         this.rutaImagen = rutaImagen;
     }
+    
+    
     
     
     

@@ -12,34 +12,57 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head>
         <title>Drunk Pizza</title>
         <meta charset="UTF-8"/>
-        <style>
-            .contenido {
-                text-align: center;
-                border-radius: 20px;
-                top:50%;
-                left: 50%;
-                margin-left: -200px;
-                margin-top: -125px;
-                width: 400px;
-                height: 250px;
-                background-color: grey;
-                position: fixed;
-                overflow: auto;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/login.css" th:href="@{/css/login.css}" /> 
+        <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
     </head>
-    <body>
-        <div class="contenido">
-            <h2 th:text="#{login.login}">Login</h2>            
-            <form method="POST" th:action="@{/login}">
-                <label for="username" th:text="#{login.username}">Username:</label><br/>
-                <input type="text" name="username" id="username"/>
-                <br/><br/>
-                <label for="password" th:text="#{login.password}">Password</label><br/>
-                <input type="password" name="password" id="password"/>
-                <br/><br/>
-                <button type="submit" value="Login" th:text="#{login.login}">Login</button>
-            </form>
-        </div>        
-    </body>
-</html>
+
+
+
+    <div id="login-button">
+        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+        </img>
+    </div>
+    <div id="container">
+        <h1>[[#{login.login}]]</h1>
+        <span class="close-btn">
+            <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </span>
+
+        <form  method="POST" th:action="@{/login}">
+            <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                    <div class="btn">
+                        <button type="submit" value="Login" th:text="#{login.login}" class="submit-btn"></button>                       
+                    </div>
+                    <div id="remember-container">
+                        <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
+                        <span id="remember">[[#{login.recordar}]]</span>
+                        <span id="forgotten">[[#{login.olvidarContrasena}]]</span>
+                    </div>
+                    </form>
+                    </div>
+
+
+
+                    <script>
+                        $('#login-button').click(function () {
+                            $('#login-button').fadeOut("slow", function () {
+                                $("#container").fadeIn();
+                                TweenMax.from("#container", .4, {scale: 0, ease: Sine.easeInOut});
+                                TweenMax.to("#container", .4, {scale: 1, ease: Sine.easeInOut});
+                            });
+                        });
+
+                        $(".close-btn").click(function () {
+                            TweenMax.from("#container", .4, {scale: 1, ease: Sine.easeInOut});
+                            TweenMax.to("#container", .4, {left: "0px", scale: 0, ease: Sine.easeInOut});
+                            $("#container, #forgotten-container").fadeOut(800, function () {
+                                $("#login-button").fadeIn(800);
+                            });
+                        });
+
+
+                    </script>
+
+                    </body>
+                    </html>

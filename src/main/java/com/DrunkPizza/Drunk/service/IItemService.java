@@ -8,22 +8,21 @@ import com.DrunkPizza.Drunk.entity.Item;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public interface IItemService {
-    
+
     //En lugar de una tabla de BD se usa una ArrayList para registro temporal
     public List<Item> listaItems = new ArrayList<>();
-    
-    public List<Item> getAllItems();
-    
-    public Item getItem (Item item);
-    
-    public void saveItem (Item item);
-    
-    public void delete (Item item);
-    
+
+    public List<Item> getItems();
+
+    public void saveItem(Item item);
+
+    public void delete(Item item);
+
+    public Item getItem(Item item);
+
     public void actualiza(Item item);
-    
+
     public void facturar();
-    
+
 }
