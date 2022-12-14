@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+    background-color: #ffffff;
+}
+h1{
+    font-size: 30px;
+    color: #000000;
+    margin-top: 40px;
+    letter-spacing: 4px;
+     text-transform: uppercase;
+
+}
+
+
+/*CONTENEDOR*/
+
+
+.contenedor_producto{
+    display: inline-block;
+    width: auto;
+    margin: 50px 20px;
+    text-align: center;
+    background-color: #420303a9;
+    width: 600px;
+    height: 250px;
+    border: 1px solid #420303a9;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+
+}
+
+
+.contenedor_producto:hover{
+    box-shadow: 0 0.1rem 0.4rem ;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #565454;
+}
+
+
+
+/*ETIQUETAS*/
+
+.producto{
+    width: 500px;;
+    height: 250px;
+
+}
+
+.nombre{
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    
+}
+
+.descripcion{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+    
+}
+
+.precio{
+    display: flex;
+    justify-content: center;  
+    color: white;
+    font-weight: 800;
+    margin-top: 75px;
+}
+
+.boton{
+    display: inline;
+    margin: 30px;
+
+    
+}
+
+
+  
+.boton a:hover {
+    background: #ffcc33;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 0 5px #ffff00,
+                0 0 25px #ffff00,
+                0 0 50px #ffff00,
+                0 0 100px #ffff00;
+}
+  
+
