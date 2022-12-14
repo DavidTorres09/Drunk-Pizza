@@ -136,7 +136,7 @@ li:hover:after{
 }
 
 ion-icon{
-    color: #000;
+    color: #FFFFFF;
     font-size: 1.75em;
     transition: 0.5s;
     transition-delay: 0.25s;
@@ -144,12 +144,13 @@ ion-icon{
 
 li:hover span.material-symbols-outlined{
     transform: scale(0);
-    color: #fff;
+    color: #FFFFFF;
     transition-delay: 0s;
 }
 
 span{
     position: absolute;
+    color: #FFFFFF;
 }
 
 .txt{

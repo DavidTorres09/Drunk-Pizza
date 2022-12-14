@@ -26,7 +26,6 @@
                                             </div>  
                                     </div>
 
-                                    <span sec:authentication="name"></span>
                                     <ul>
                                         <li style="--w:#ff0000;--e:#FFC300;">
                                             <span class="material-symbols-outlined" >home</span>
@@ -56,12 +55,12 @@
                                             <span class="material-symbols-outlined" >favorite</span>
                                             <a class="txt" href="#" th:href="@{/productos}">[[#{nav.opiniones}]]</a>
                                         </li>
+                                        <li style="--w:#3498DB;--e:#34495E;" sec:authorize="hasRole('ROLE_VENDEDOR')">
+                                            <span class="material-symbols-outlined" >logout</span>
+                                            <a class="txt" href="#" th:href="@{/login}">[[#{nav.logout}]]</a>
+                                        </li>
                                   
-                                            <form method="POST" 
-                                                  th:action="@{/logout}" >                  
-                                                <a href="#" 
-                                                   onclick="this.parentNode.submit();">[[#{nav.logout}]]</a>
-                                            </form>
+                                 
 
 
                                     </ul>
