@@ -20,8 +20,7 @@
                         <nav th:replace="plantilla/template::nav"></nav>
                     </header>
 
-                    <h2 th:text="${titulo}"></h2>
-                    <h2 th:text="#{articulo.titulo}"></h2>
+
 
                     <div id="resultsBlock">
 
@@ -30,7 +29,6 @@
                     <section th:fragment="listadoProductos" id="productos" >
                         <div class="container">
                             <div class="row row-cols-2">
-                                <h2 class="inline" th:text="#{index.titulo}"> Nuestros Articulos</h2>
 
                                 <div id="resultsBlock">
 
@@ -58,7 +56,7 @@
 
                                         <form>
                                             <input type="hidden" name="texto" th:value="${user.getId_producto}"/>
-                                            <button class="btn btn-light"
+                                            <button class="btn-light"
                                                     id="addCar"
                                                     name="addCar"
                                                     onclick="addCard(this.form)"

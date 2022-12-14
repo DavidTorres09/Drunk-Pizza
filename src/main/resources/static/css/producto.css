@@ -8,7 +8,7 @@
 body{
 
     position: relative;
-    margin-bottom: 40px;
+
     text-align: center;
     background-color: #ffffff;
 }
@@ -28,14 +28,16 @@ h1{
 .contenedor_producto{
     display: inline-block;
     width: auto;
-    margin: 50px 20px;
+    margin: 30px 10px;
     text-align: center;
-    background-color: #420303a9;
-    width: 600px;
-    height: 250px;
+    background-color: #990000;
+    width: 400px;
+    height: 300px;
     border: 1px solid #420303a9;
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
+    align-items: center;
+    margin-bottom: 10px;
 
 }
 
@@ -43,7 +45,7 @@ h1{
 .contenedor_producto:hover{
     box-shadow: 0 0.1rem 0.4rem ;
     cursor: pointer;
-    box-shadow: 5px 5px 5px #990000;
+    box-shadow: 0 10px 10px #cccccc;
 }
 
 
@@ -51,7 +53,7 @@ h1{
 /*ETIQUETAS*/
 
 .producto{
-    width: 500px;;
+    width: 400px;;
     height: 250px;
 
 }
@@ -101,6 +103,70 @@ h1{
                 0 0 50px #ffff00,
                 0 0 100px #ffff00;
 }
+
+hr{
+    margin-left: 37%;
+    margin-right: 37%;
+    margin-top: 5px;
+    
+}
+
+img{
+    width: 150px;
+    height: 120px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+#logo{
+    height: 120px;
+    width: 120px;
+    margin: 0;
+}
+
+.Nombre {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    
+}
+
+.Precio {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    
+}
+
+.btn-light {
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+    background-color: #ffff00;
+
+    
+}
+
+.btn-light:hover {
+    
+    box-shadow: 0 0 5px #ffff00,
+                0 0 25px #ffff00,
+                0 0 50px #ffff00,
+                0 0 100px #ffff00;
+}
+
+button .material-symbols-outlined{
+    color: #000000;
+    
+}
+
+#resultsBlock{
+ margin: 20px;   
+    
+}
+
+
+
   
 
 

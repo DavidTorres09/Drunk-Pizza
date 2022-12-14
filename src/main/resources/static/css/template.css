@@ -44,14 +44,14 @@ nav{
     justify-content: center;
     display: flex;
     align-items: center;
-    background-color: #390505;
+    background-color: #990000;
     grid-area: nav;
     padding-top: var(--main-padding);
     position: relative;
     left: 50%;
     transform: translatex(-50%);
-    height: 150px;
-    box-shadow: 0 5px 10px #971a1a;
+    height: 180px;
+    box-shadow: 0 10px 10px #cccccc;
 }
 
 main{
@@ -150,7 +150,7 @@ li:hover span.material-symbols-outlined{
 
 span{
     position: absolute;
-    color: #FFFFFF;
+    color:#FFFFFF;
 }
 
 .txt{

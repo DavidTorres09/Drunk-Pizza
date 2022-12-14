@@ -16,12 +16,13 @@
                         <div class="container">
                             <header >
                                 <nav th:fragment="nav" sec:authorize="isAuthenticated()" >
-                                    <div class="Principal">
-                                        <img src="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FLogo.png?alt=media&token=03af6e79-b636-4eca-9e1b-67eef53165e0" width="120">
+                                    <div class="Principal" id="titulo">
+                                        <img src="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FLogo.png?alt=media&token=03af6e79-b636-4eca-9e1b-67eef53165e0" id="logo">
                                             <div class="user">
                                                 <h2>
                                                     [[#{plantilla.bienvenido}]]
-                                                    <span sec:authentication=" name"></span>
+                                                    
+                                                    <p sec:authentication=" name"></p>
                                                 </h2> 
                                             </div>  
                                     </div>
@@ -51,11 +52,11 @@
                                             <span class="material-symbols-outlined" >fastfood</span>
                                             <a class="txt" href="#" th:href="@{/productos}">[[#{nav.productos}]]</a>
                                         </li>
-                                        <li style="--w:#3498DB;--e:#34495E;" sec:authorize="hasRole('ROLE_VENDEDOR')">
+                                        <li style="--w:#3498DB;--e:#ffffff;" sec:authorize="hasRole('ROLE_VENDEDOR')">
                                             <span class="material-symbols-outlined" >favorite</span>
                                             <a class="txt" href="#" th:href="@{/productos}">[[#{nav.opiniones}]]</a>
                                         </li>
-                                        <li style="--w:#3498DB;--e:#34495E;" sec:authorize="hasRole('ROLE_VENDEDOR')">
+                                        <li style="--w:#ffffff;--e:#ff0000;" sec:authorize="hasRole('ROLE_VENDEDOR')">
                                             <span class="material-symbols-outlined" >logout</span>
                                             <a class="txt" href="#" th:href="@{/login}">[[#{nav.logout}]]</a>
                                         </li>
@@ -75,7 +76,7 @@
 
                             <footer class="footer" th:fragment="footer">
                                 <section>
-                                    <a href="#titulo">Ir al titulo</a>
+                                    <a href="#titulo">[[#{footer.goToTitle}]]</a>
                                     <br>
                                         <a href="mailto:drunkpizza@gmail.com">drunkpizza@gmail.com</a>
                                         <br>
@@ -89,7 +90,7 @@
                                                 <form method="POST" 
                                                       th:action="@{/logout}" 
                                                       style="display: inline">                    
-                                                    <a href="#" onclick="this.parentNode.submit();">[[#{plantilla.logout}]]</a>
+                                                    <a href="#" onclick="this.parentNode.submit();">[[#{nav.logout}]]</a>
                                                 </form>
 
                                                 </section>

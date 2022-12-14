@@ -6,7 +6,7 @@
         <title>Index</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="icon" href="images\Logo Pizza.ico"/>
+        <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FLogo.png?alt=media&token=03af6e79-b636-4eca-9e1b-67eef53165e0"/>
         <link rel="icon" href="images\Logo Pizza.ico"/>
         <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
         <link rel="stylesheet" type="text/css" media="all" href="/css/producto.css" th:href="@{/css/producto.css}" />
@@ -21,8 +21,9 @@
             <nav th:replace="plantilla/template::nav"></nav>
         </header>
 
-        <h1 th:text="${titulo}"></h1>
         <h1 th:text="#{articulo.titulo}"></h1>
+        
+        <hr>
 
         <section th:replace="carritoFragmentos::listadoProductos"></section>
         <script>
