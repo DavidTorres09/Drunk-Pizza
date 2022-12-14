@@ -6,6 +6,7 @@ import com.DrunkPizza.Drunk.entity.Usuario;
 import com.DrunkPizza.Drunk.repository.UsuarioRepository;
 import java.util.ArrayList;
 import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

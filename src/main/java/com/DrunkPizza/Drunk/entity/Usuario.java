@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
    
- @Entity
+@Entity
 @Table(name = "usuario")
 public class Usuario implements Serializable {
     
