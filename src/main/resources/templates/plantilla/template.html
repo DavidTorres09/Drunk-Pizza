@@ -44,7 +44,7 @@
                                             <span class="material-symbols-outlined" >favorite</span>
                                             <a class="txt" href="#" th:href="@{/opinion}">[[#{nav.opinion}]]</a>
                                         </li>
-                                        <li style="--w:#FF00F3;--e:#3498DB;" sec:authorize="hasRole('ROLE_VENDEDOR')">
+                                        <li style="--w:#FF00F3;--e:#3498DB;" sec:authorize="hasRole('ROLE_ADMIN')">
                                             <span class="material-symbols-outlined" >groups</span>
                                             <a class="txt" href="#" th:href="@{/cliente}">[[#{nav.usuarios}]]</a>
                                         </li>
@@ -56,7 +56,7 @@
                                             <span class="material-symbols-outlined" >favorite</span>
                                             <a class="txt" href="#" th:href="@{/Opiniones/Opiniones}">[[#{nav.opiniones}]]</a>
                                         </li>
-                                        <li style="--w:#ffffff;--e:#ff0000;" sec:authorize="hasRole('ROLE_VENDEDOR')">
+                                        <li style="--w:#ffffff;--e:#ff0000;" >
                                             <span class="material-symbols-outlined" >logout</span>
                                             <a class="txt" href="#" th:href="@{/login}">[[#{nav.logout}]]</a>
                                         </li>

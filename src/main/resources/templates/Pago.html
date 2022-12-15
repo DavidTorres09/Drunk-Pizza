@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Pago</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FLogo.png?alt=media&token=03af6e79-b636-4eca-9e1b-67eef53165e0"/>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+         <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+         <link rel="stylesheet" type="text/css" media="all" href="/css/pago.css" th:href="@{/css/pago.css}" />
+    </head>
+    <body>
+        <header>
+            <nav th:replace="plantilla/template::nav"></nav>
+        </header>
+
+        <div class="contenedor-pago">
+            <img src="https://firebasestorage.googleapis.com/v0/b/drunkpizza-60b6c.appspot.com/o/imagenes%2FCheck.png?alt=media&token=b1c794ec-7d9c-44f7-8579-8d9e3328c82b" id="logo">
+            <h2>[[#{confirmacion.comida}]]</h2>
+            <div class="card-body">
+            <a th:href="@{/}" id="index">
+                [[#{carrito.seguirComprando}]]
+            </a>
+        </div> 
+        </div>
+        
+        <br><br><br><br><br><br><br><br><br><br><br>
+        
+         
+
+        <footer th:replace="plantilla/template::footer"></footer>
+
+    </body>
+</html>

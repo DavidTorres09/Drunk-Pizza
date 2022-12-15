@@ -1,0 +1,43 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 dic 2022, 17:01:39
+    Author     : angel
+*/
+
+#container{
+    margin-top: 80px;
+    padding-left: 1%;
+    padding-right: 1%;
+    align-items: center;
+    width: 1000px;
+    
+}
+
+
+th,td{
+    color: black;
+    
+}
+
+th{
+    font-size: 22px;
+    background-color: #990000;
+    color: white;
+    padding: 10px;
+  
+} 
+
+td{
+    font-size: 18px;
+    padding-bottom: 15px;
+}
+
+td a{
+    text-decoration: none;
+    color: #990000;
+    
+}
+

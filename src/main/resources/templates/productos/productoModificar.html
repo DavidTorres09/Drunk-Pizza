@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <div >
                                             <p>Categoria</p>
                                             <div>
-                                                <select  th:field="*{descripcion}"  id="descripcion" >
+                                                <select  th:field="*{id_categoria}"  id="descripcion" >
                                                     <option th:each="x:${descripcion}"
                                                             th:value="${x.id_categoria}"
                                                             th:text="${x.descripcion}"/>

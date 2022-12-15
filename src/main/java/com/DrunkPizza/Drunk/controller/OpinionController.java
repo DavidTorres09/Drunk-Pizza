@@ -30,4 +30,10 @@ public class OpinionController {
         return "/opiniones/opiniones";
     }
     
+    @GetMapping("/opinion")
+    public String index() {
+
+        return "/opiniones/opinion";
+    }
+    
 }

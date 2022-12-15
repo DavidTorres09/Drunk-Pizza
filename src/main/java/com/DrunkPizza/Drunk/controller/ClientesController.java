@@ -28,7 +28,7 @@ public class ClientesController {
         List<Clientes> listaClientes = clientesService.getAllClientes();
         model.addAttribute("titulo", "Cliente");
         model.addAttribute("cliente", listaClientes);
-        return "cliente";
+        return "/perfil";
     }
 
     @GetMapping("clienteNuevo")

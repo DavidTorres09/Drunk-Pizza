@@ -97,8 +97,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasAnyRole("ADMIN", "VENDEDOR")
                 .antMatchers("/","/carrito")
                 .permitAll()
+                
                 /*SI NO SE ENCUENTRA AUTENTICADO*/
-                .antMatchers("/facturar/carrito")
+                .antMatchers("/")
                 .authenticated()
                 .and().formLogin() .loginPage("/login")
                 .and()

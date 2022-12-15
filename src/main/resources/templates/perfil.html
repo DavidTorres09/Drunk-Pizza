@@ -12,64 +12,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <header>
-            <nav th:replace="plantilla/template::nav"></nav>
-        </header>
-
-    <section:block th:each="user : ${cliente}" class="contenedor_cliente">
-
-        <div class="cliente">
-            <div class="Nombre">
-                <h2 th:text="#{cliente.nombre}"></h2>
-                <p th:text="${user.getNombre}"></p>
-            </div>
-
-            <div class="Apellido1">
-                <h2 th:text="#{cliente.apellido}"></h2>
-                <p th:text="${user.getApellido1}"></p>
-            </div>
-
-            <div class="Apellido2">
-                <h2 th:text="#{cliente.apellido}"></h2>
-                <p th:text="${user.getApellido2}"></p>
-            </div>
-
-            <div class="Dirección">
-                <h2>Direccion</h2>
-                <p th:text="${user.getDireccion}"></p>
-            </div>
-
-            <div class="Email">
-                <h2>Email</h2>
-                <p th:text="${user.getEmail}"></p>
-            </div>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+                <link rel="stylesheet" type="text/css" media="all" href="/css/perfil.css" th:href="@{/css/perfil.css}" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                </head>
+                <body>
+                    <header>
+                        <nav th:replace="plantilla/template::nav"></nav>
+                    </header>
 
 
-            <div class="Telefono">
-                <h2 th:text="#{cliente.telefono}"></h2>
-                <p th:text="${user.getTelefono}"></p>
-            </div>
-
-            <div class="boton">
-                <a th:href="@{/editClientes/{id}(id=${user.getId})}">Edit</a>
-            </div>
-            <div class="boton">
-                <a th:href="@{/deleteCliente/{id}(id=${user.getId})}">Delete</a>
-            </div>
-
-
-
-        </div>
-
-
-    </section:block >
+                    <div id="container">
+                      <table border="1">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>[[#{cliente.nombre}]]</th>
+                                <th>[[#{cliente.apellido1}]]</th>
+                                <th>[[#{cliente.apellido2}]]</th>
+                                <th>[[#{cliente.direccion}]]</th>
+                                <th>[[#{cliente.email}]]</th>
+                                <th>[[#{cliente.telefono}]]</th>
+                                <th>[[#{cliente.password}]]</th>
+                                <th COLSPAN="2">[[#{producto.acciones}]]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="cliente :${cliente}">
+                                <td>[[${cliente.getId_cliente}]]</td>
+                                <td>[[${cliente.getNombre}]]</td>
+                                <td>[[${cliente.getApellido1}]]</td>
+                                <td>[[${cliente.getApellido2}]]</td>
+                                <td>[[${cliente.getDireccion}]]</td>
+                                <td>[[${cliente.getEmail}]]</td>
+                                <td>[[${cliente.getTelefono}]]</td>
+                                <td>[[${cliente.getPassword}]]</td>
+                                <td>
+                                    <a th:href="@{/carrito/eliminar/{id}(id=${cliente.getId_cliente})}">[[#{accion.eliminar}]]</a>
+                                </td>
+                                <td>
+                                    <a th:href="@{/carrito/modificar/{id}(id=${cliente.getId_cliente})}">[[#{accion.actualizar}]]</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  
+                        
+                        
+                    </div>
+                    
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                    
 
 
 
 
-    <footer th:replace="plantilla/template::footer"></footer>
-</body>
-</html>
+
+
+
+                    <footer th:replace="plantilla/template::footer"></footer>
+                </body>
+                </html>

@@ -11,9 +11,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" type="text/css" media="all" href="/css/template.css" th:href="@{/css/template.css}" />
+                <link rel="stylesheet" type="text/css" media="all" href="/css/opinion.css" th:href="@{/css/opinion.css}" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
                 </head>
                 <body>
+                    <header>
+                        <nav th:replace="plantilla/template::nav"></nav>
+                    </header>
+
+                    <div class="container">
+                        <div sec:authentication=" name" class="nombre">
+                        </div>
+                        
+                        <div class="Opinion">
+                            <input class="controls" type="text" name="comentario" id="Opinion" placeholder="Por favor digite su opinion"> 
+
+                        </div>
+    
+                            <button class="boton"><a href="">Enviar</a></button>
+        
+
+                    </div>
+
+                    <footer th:replace="plantilla/template::footer"></footer>
 
 
                 </body>

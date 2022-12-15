@@ -1,0 +1,22 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 dic 2022, 17:25:24
+    Author     : angel
+*/
+
+.contenedor-pago{
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+}
+
+
+#index{
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    height: 800;
+}
